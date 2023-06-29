@@ -1,0 +1,36 @@
+site_name: My Docs
+repo_url: https://github.com/iruldanet/field-notes
+repo_name: iruldanet/field-notes
+
+theme:
+  name: material
+  palette: 
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny 
+        name: Switch to dark mode
+  features:
+    - search.suggest
+    - search.highlight
+    - search.share
+    - navigation.footer
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+  icon:
+    repo: fontawesome/brands/github-alt
+
+plugins: 
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/iruldanet
+
