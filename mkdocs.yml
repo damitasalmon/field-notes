@@ -1,6 +1,7 @@
 site_name: My Docs
-repo_url: https://github.com/iruldanet/field-notes
+repo_url: https://iruldanet.gitlab.io/field-notes
 repo_name: iruldanet/field-notes
+site_dir: public
 
 theme:
   name: material
@@ -26,8 +27,22 @@ theme:
   icon:
     repo: fontawesome/brands/github-alt
 
-plugins: 
+plugins:
   - search
+  - roamlinks 
+
+markdown_extensions:
+  - pymdownx.betterem
+  - footnotes
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.magiclink
+  - pymdownx.tasklist
+  - pymdownx.emoji
+  - admonition
+
 
 extra:
   social:
