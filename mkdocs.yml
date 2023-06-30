@@ -7,6 +7,8 @@ repo_name: iruldanet/field-notes
 
 theme:
   name: material
+  logo: assets/images/logo.gif
+  favicon: assets/images/favicon.png
   palette: 
     # Palette toggle for dark mode
     - scheme: slate
@@ -29,7 +31,7 @@ theme:
     - navigation.tracking
     - navigation.top
   icon:
-    repo: fontawesome/brands/github-alt
+    repo: fontawesome/brands/gitlab
 
 plugins:
   - search
@@ -53,6 +55,9 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/iruldanet
+  generator: false
 
 extra_css:
   - assets/styles/extra.css
+
+copyright: Copyright &copy; 2023 Damita Salmon
