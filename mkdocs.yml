@@ -1,10 +1,15 @@
+# Project Information
 site_name: Field Notes
+site_author: Damita Salmon
 site_url: https://iruldanet.gitlab.io/field-notes
 site_dir: public
 site_description: A collection of tech notes and lab write-ups, for my own reference.
+
+#Repository
 repo_url: https://gitlab.com/iruldanet/field-notes
 repo_name: iruldanet/field-notes
 
+#Configuration
 theme:
   name: material
   logo: assets/images/logo.png
@@ -13,6 +18,7 @@ theme:
     # Palette toggle for dark mode
     - scheme: slate
       primary: teal
+      accent: indigo
       toggle:
         icon: material/weather-night
         name: Switch to light mode
@@ -33,10 +39,15 @@ theme:
   icon:
     repo: fontawesome/brands/gitlab
 
+# Plugins
 plugins:
-  - search
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - tags:
+      tags_file: tags.md
   - roamlinks
-
+  
+# Extensions
 markdown_extensions:
   - pymdownx.betterem
   - footnotes
@@ -49,7 +60,7 @@ markdown_extensions:
   - pymdownx.emoji
   - admonition
 
-
+# Customizations
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -59,4 +70,5 @@ extra:
 extra_css:
   - assets/styles/extra.css
 
+# Copyright
 copyright: Copyright &copy; 2023 Damita Salmon
