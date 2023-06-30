@@ -41,10 +41,10 @@ pip show mkdocs-material
 ## More information
 
 #### Documentation
-[MkDocs](https://www.mkdocs.org/)
+[MkDocs](https://www.mkdocs.org/) <br />
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 
 ###### Further Reading 
-[GitHub - squidfunk/mkdocs-material: Documentation that simply works](https://github.com/squidfunk/mkdocs-material)
+[GitHub - squidfunk/mkdocs-material: Documentation that simply works](https://github.com/squidfunk/mkdocs-material) </br>
 [Publishing Obsidian.md notes with GitLab Pages | GitLab](https://about.gitlab.com/blog/2022/03/15/publishing-obsidian-notes-with-gitlab-pages/)
 
