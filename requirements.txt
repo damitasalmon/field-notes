@@ -7,6 +7,7 @@ mkdocs-material==9.1.17
 # Wikilinks support
 mkdocs-roamlinks-plugin>=0.1.3
 
+mkdocs-rss-plugin==1.7.0
 mkdocs-ezlinked-plugin==0.3.3
 mkdocs-awesome-pages-plugin==2.9.1
 mdx_breakless_lists==1.0.1

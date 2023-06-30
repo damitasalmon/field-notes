@@ -1,13 +1,15 @@
-site_name: My Docs
-repo_url: https://iruldanet.gitlab.io/field-notes
-repo_name: iruldanet/field-notes
+site_name: Field Notes
+site_url: https://iruldanet.gitlab.io/field-notes
 site_dir: public
+site_description: A collection of tech notes and lab write-ups, for my own reference.
+repo_url: https://gitlab.com/iruldanet/field-notes
+repo_name: iruldanet/field-notes
 
 theme:
   name: material
   palette: 
     # Palette toggle for dark mode
-    - scheme: slate
+    - scheme: graffiti
       toggle:
         icon: material/weather-night
         name: Switch to light mode
@@ -29,7 +31,8 @@ theme:
 
 plugins:
   - search
-  - roamlinks 
+  - roamlinks
+  - rss
 
 markdown_extensions:
   - pymdownx.betterem
@@ -49,3 +52,5 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/iruldanet
 
+extra_css:
+  - assets/styles/extra.css

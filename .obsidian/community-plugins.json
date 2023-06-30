@@ -1,3 +1,8 @@
 [
-  "obsidian-git"
+  "obsidian-git",
+  "templater-obsidian",
+  "tag-wrangler",
+  "cm-editor-syntax-highlight-obsidian",
+  "obsidian-linter",
+  "obsidian-auto-link-title"
 ]
