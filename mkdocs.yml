@@ -7,7 +7,7 @@ repo_name: iruldanet/field-notes
 
 theme:
   name: material
-  logo: assets/images/logo.gif
+  logo: assets/images/logo.png
   favicon: assets/images/favicon.png
   palette: 
     # Palette toggle for dark mode
@@ -36,7 +36,6 @@ theme:
 plugins:
   - search
   - roamlinks
-  - rss
 
 markdown_extensions:
   - pymdownx.betterem
