@@ -10,7 +10,7 @@ tags:
 It's renewal season. *again.* <br />
 And you've forgotten how to do this, *again.* 😭
 
-The cliffnotes:
+Quick notes:
 
 **Addigy ADE Token Renewal / MDM Certificate Renewal (APN)** <br />
 	In Addigy it's Policies > Settings > ADE <br />
