@@ -9,7 +9,7 @@ Read the directions, even if you don't follow them. <br />
 Maybe you'll need them, maybe you wont. <br />
 
 If you find these pages, rambling and incoherent, be patient. <br />
-Especially if you're me. <br />
+Especially, if you're me. <br />
 
 ---
 Made with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
