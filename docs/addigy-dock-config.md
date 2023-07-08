@@ -5,7 +5,7 @@ tags:
 - addigy
 - outset
 ---
-# macOS Dock Configuration with Dockutil, Outset and Addigy
+# Dock Configuration with Dockutil, Outset and Addigy
 
 Once upon a time, I configured docks with dockutil and outset and deployed them via Addigy. 
 
@@ -15,21 +15,21 @@ Since that was not ideal, I originally set this up to round out the sharp edges 
 
 Once the utility dependencies are installed, you can run a condition script in Addigy to check for and install any applications in your script that may be missing - to prevent a wonky dock. 
 
-###### Dependencies 
+### Dependencies 
 
-Dockutil
-Python
-Outset 
+- Dockutil
+- Python
+- Outset 
 
-###### Scripts
+### Scripts
 
 The specific scripts I deployed are in the [shell-scripts](https://github.com/damitasalmon/shell-scripts) repo, under bash/dockutil. They leverage bash, but previous versions of dockutil leveraged python instead of swift, so (naturally) the older they are, the less likely they'll work provided the current dependencies. It's mostly the same from the best of my recollection, but double-check the dockutil syntax just in case. 
 
-##### Using with Addigy, specifically
+### Using with Addigy, specifically
 
 The one caveat with this, is that if you apply it to an already existing policy, all users will be affected - even old ones that already have their dock just as they like it. Although it's only set to execute at first login post deployment - again, not ideal - so I only deployed this on a *separate* policy with brand new or "refreshed" devices. As users left the organization and the devices were returned to us to be redeployed to new users - the config would slowly proliferate the inventory. Overtime, less monitoring is needed (see notes). 
 
-###### Installation Command
+#### Installation Command
 
 Addigy can prepopulate the installation with the "Install Command" button - but the bottom half is the important bit. 
 
@@ -51,12 +51,12 @@ cp setDock-defaultDock.sh /usr/local/outset/login-once
 
 ```
 
-###### Condition for install
+#### Condition for install
 
 You can easily build this in Addigy and customize to the apps you want to deploy. 
 
 
-###### Removal Command
+#### Removal Command
 
 Do not use this unless you want it removed. 
 
@@ -65,11 +65,11 @@ Do not use this unless you want it removed.
 /bin/rm -Rf '/usr/local/bin/dockutil'
 ```
 
-###### Notes
+#### Notes
 
 Okay, one more caveat. Occasionally, this would not work - the script would not deploy. This has more to do with the quirks of software deployment in Addigy than anything else (see Addigy Notes). Addigy as a product, continuously improves, so we experienced fewer bugs over time. In the event that it did not deploy automatically - on schedule, or we needed it to deploy immediately, I just manually pushed the Custom Software item like you would any other custom install on a device. 
 
-##### Helpful Resources
+### Helpful Resources
 [Apple Dock Documentation](https://developer.apple.com/documentation/devicemanagement/dock)<br />
 [GitHub - kcrawford/dockutil: command line tool for managing dock items](https://github.com/kcrawford/dockutil)<br />
 [GitHub - chilcote/outset: Automatically process packages, profiles, and scripts during boot, login, or on demand.](https://github.com/chilcote/outset)<br />
