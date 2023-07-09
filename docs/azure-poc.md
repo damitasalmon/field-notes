@@ -257,18 +257,18 @@ Database developers want to access the above listed department databases. They a
 
 **1. Why did we need to create a different VNet for each department?**
 
-<p class="questioin-response"> We created separate VNets for each department because it was a specific requirement/security policy of the company and were created to match the organizational structure.</p>
+<p class="question-response"> We created separate VNets for each department because it was a specific requirement/security policy of the company and were created to match the organizational structure.</p>
 
-<p class="questioin-response">Based on the project requirements and network security groups, we can speculate that the company wishes to enforce some level of network isolation between departments, likely to prevent unauthorized access or chance of data breach. It also simplifies network management since because each VNet was defined with its own CIDR address block and subnets.</p>
+<p class="question-response">Based on the project requirements and network security groups, we can speculate that the company wishes to enforce some level of network isolation between departments, likely to prevent unauthorized access or chance of data breach. It also simplifies network management since because each VNet was defined with its own CIDR address block and subnets.</p>
 
 
 **2. Why did MAS and HR have specific rules in the Security Group Policies?**
 
-<p class="questioin-response">We can only speculate since no reason was specified, but it was most likely requested to enforce the principle of least privilege or to enable RBAC and restrict access to resources only to members of the respective department. Human Resources, especially, would want to ensure data confidentiality since they have access to sensitive and confidential personal employee data and would want to prevent any unauthorized access.</p>
+<p class="question-response">We can only speculate since no reason was specified, but it was most likely requested to enforce the principle of least privilege or to enable RBAC and restrict access to resources only to members of the respective department. Human Resources, especially, would want to ensure data confidentiality since they have access to sensitive and confidential personal employee data and would want to prevent any unauthorized access.</p>
 
 **3.  Name some additional Azure features that can be used to safeguard and protect corporate data.**
 
-  <ul class="questioin-response">
+  <ul class="question-response">
     <li>Azure Active Directory (Azure AD) could be used for identity and access management services, which would give the organization centralized control over user identities and access to resources. It would allow for multi-factor authentication, conditional access policies, and provide better security and management around access control.</li>
     <li>HR could take advantage of Azure Information Protection (AIP) to help classify, label, and protect sensitive information by applying encryption, rights management, and access controls. Azure DDoS Protection would help safeguard frequently accessed cloud resources, like the MAS web app, databases and corporate storage account, ensuring that the applications remain available.</li> 
     <li>With Azure Backup, the company can protect critical data against accidental deletion, ransomware, or other data loss.</li>
@@ -276,21 +276,21 @@ Database developers want to access the above listed department databases. They a
 
 **4. Why did only the MAS department get a Web App?**
 
-<p class="questioin-response">We made the web app accessible to the public. It's customer-facing and the function of the Marketing and Sales department might necessitate a dedicated web app as the website for the company. The web app can be tailored to providing marketing collateral and information about the company that they will use to advertise the company's services and procure new business. </p>
+<p class="question-response">We made the web app accessible to the public. It's customer-facing and the function of the Marketing and Sales department might necessitate a dedicated web app as the website for the company. The web app can be tailored to providing marketing collateral and information about the company that they will use to advertise the company's services and procure new business. </p>
 	
-<p class="questioin-response"> Hosting certain marketing materials on the web could improve user experience and provide better customization than print materials and are easier and less expensive to update in the event of any changes. </p>
+<p class="question-response"> Hosting certain marketing materials on the web could improve user experience and provide better customization than print materials and are easier and less expensive to update in the event of any changes. </p>
 
 **5. What are the benefits of collecting monitoring data? How long should data be stored?**
 
-<p class="questioin-response">Collecting monitoring data allows organizations to establish a baseline for performance, troubleshoot and identify issues, monitor and manage costs, monitor access control patterns, optimize and perform proactive/preventative maintenance where needed. By analyzing the data, organizations can make informed decisions around system administration and user experience. Additionally, it may be required if the company is subject to regulatory compliance.</p>
+<p class="question-response">Collecting monitoring data allows organizations to establish a baseline for performance, troubleshoot and identify issues, monitor and manage costs, monitor access control patterns, optimize and perform proactive/preventative maintenance where needed. By analyzing the data, organizations can make informed decisions around system administration and user experience. Additionally, it may be required if the company is subject to regulatory compliance.</p>
 
 **6. How can you reduce deployment expenses for the organization's benefit?**
 
-<ol class="questioin-response">
+<ol class="question-response">
   <li>One way we can reduce deployment expenses is by <b>right-sizing resources.</b> If we review and optimize virtual machines, storage accounts, and databases we can ensure that we are not over-provisioning and paying for unused/unnecessary capacity. </li>
   <li>We can use tools like <b>Azure Cost Management</b> to monitor and manage costs and <b>Azure Monitor</b> to identify optimization and cost-saving opportunities.</li>
   <li>Another way we can reduce deployment expenses is by using <b>Azure Reserved Virtual Machine Instances</b> for long-term deployments. We would pay upfront with a longer commitment term, but save money on the resources by reserving them in advance.</li>
   <li>Additionally, if we have existing software licenses, from the on-premises environment, we can save by using the <b>Azure Hybrid Benefit</b> to apply those licenses to Azure VMs.</li>
 </ol>
 
-<p class="questioin-response">There are more ways to save than this, but these are just a few ideas. </p>
+<p class="question-response">There are more ways to save than this, but these are just a few ideas. </p>
