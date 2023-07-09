@@ -6,7 +6,7 @@ tags:
 
 ## Background
 
-<p class="response" >I build this sample Azure infrastructure as a part of a skills-based assessment (SBA). This project was graded, so a many of the resources include my initials and/or last name to confirm it is my work. The alternative assignment was to present a business case convincing/explaining why the company should migrate to Azure. I chose to do the SBA. </p>
+<p class="response" >I build this sample Azure infrastructure as a part of a skills-based assessment (SBA). This project was graded, so a many of the resources include my initials and/or last name to confirm it is my work. The alternative assignment was to present a business case convincing/explaining why the company should migrate to Azure. You can click on the images to zoom-in.  </p>
 
 ## Scenario
 
@@ -240,7 +240,7 @@ Database developers want to access the above listed department databases. They a
 
 **AZFK-Tech** wants to have real-time monitoring for their VMs. Install your recommended service.
 
-<<p class="response">I enabled Insights for each VM, which leverages Log Analytics Workspace and Azure Monitor.</p>
+<p class="response">I enabled Insights for each VM, which leverages Log Analytics Workspace and Azure Monitor.</p>
 
 <figure markdown>
   ![Vm Insights enabled](./assets/images/azure-virtual/2023-06-14_1686790650-vm-insights.png){ width="700" }
