@@ -1,0 +1,25 @@
+{
+  "name": "field-notes",
+  "version": "1.0.0",
+  "description": "Semi-random IT Notes",
+  "main": "docs/javascripts/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/iruldanet/field-notes.git"
+  },
+  "author": "Damita Salmon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/iruldanet/field-notes/issues"
+  },
+  "homepage": "https://gitlab.com/iruldanet/field-notes#readme",
+  "dependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
