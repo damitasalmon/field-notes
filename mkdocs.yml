@@ -70,7 +70,7 @@ extra:
   generator: false
 
 extra_css:
-  - assets/styles/extra.css
+  - assets/stylesheets/extra.css
 
 # Copyright
 copyright: Copyright &copy; 2023 Damita Salmon
