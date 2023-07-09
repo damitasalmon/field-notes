@@ -45,6 +45,7 @@ plugins:
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - tags:
       tags_file: tags.md
+  glightbox
   
 # Extensions
 markdown_extensions:
@@ -58,6 +59,8 @@ markdown_extensions:
   - pymdownx.tasklist
   - pymdownx.emoji
   - admonition
+  - md_in_html
+  - tables
 
 # Customizations
 extra:
