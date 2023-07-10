@@ -6,13 +6,13 @@ tags:
 
 ## Background
 
-<p class="response" >I build this sample Azure infrastructure as a part of a skills-based assessment (SBA). This project was graded, so a many of the resources include my initials and/or last name to confirm it is my work. The alternative assignment was to present a business case convincing/explaining why the company should migrate to Azure. You can click on the images to zoom-in.  </p>
+<p class="response" >I build this sample Azure infrastructure as a part of a skills-based assessment (SBA). This project was graded, so a many of the resources include my initials and/or last name to confirm it is my work. The alternative assignment was to present a business case convincing/explaining why the company should migrate to Azure.</p>
+
+**Note: You can click on the images to zoom-in.** 
 
 ## Scenario
 
-**AZFK-Tech**, a newly founded business, has asked me, a contractor, to help them build up their cloud infrastructure. But before I can install the infrastructure in their production environment, I must first demonstrate my ability to do so in a virtual lab environment as a limited proof of concept. 
-
-This document includes the requirements.
+**AZFK-Tech**, a newly founded business, has asked me, a contractor, to help them build up their cloud infrastructure. But before I can install the infrastructure in their production environment, I must first demonstrate my ability to do so in a virtual lab environment as a limited proof of concept according to their specifications. 
 
 ## Objectives
 
