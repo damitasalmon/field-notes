@@ -7,8 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "sass":  "node-sass -w sass/ -o docs/assets/stylesheets/ --recursive"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/iruldanet/field-notes.git"
