@@ -7,8 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "sass":  "node-sass -w sass/ -o docs/assets/stylesheets/ --recursive"
-    },
+    "sass": "sass --watch sass/:docs/assets/stylesheets/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/iruldanet/field-notes.git"
@@ -20,6 +20,8 @@
   },
   "homepage": "https://gitlab.com/iruldanet/field-notes#readme",
   "dependencies": {
-    "node-sass": "^9.0.0"
+    "bourbon": "^7.3.0",
+    "autoprefixer": "^10.4.2",
+    "sass": "^1.49.8"
   }
 }
