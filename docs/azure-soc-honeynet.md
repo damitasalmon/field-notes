@@ -4,6 +4,13 @@ tags:
 - lab
 - soc
 - honeynet
+- sentinel
+- log-analytics
+- microsoft-defender
+- NIST-SP-800-53-r4
+- NIST-SP-800-61-r2
+- PowerShell
+- KQL
 ---
 # Building a SOC + Honeynet in Azure (w/Live Traffic)
 <!-- Insert Project Image -->
@@ -42,16 +49,16 @@ To collect the metrics for the secured environment, Network Security Groups were
 ## Attack Maps Before Hardening / Security 
 
 ### NSG Allowed Malicious Inbound Flows
-![NSG Allowed Inbound Malicious Flows](./docs/assets/images/soc-honeynet/nsg.png)<br>
+![NSG Allowed Inbound Malicious Flows](./assets/images/soc-honeynet/nsg.png)<br>
 
 ### Linux SSH Authentication Failures
-![Linux Syslog Auth Fail](./docs/assets/images/soc-honeynet/syslog.png)<br>
+![Linux Syslog Auth Fail](./assets/images/soc-honeynet/syslog.png)<br>
 
 ### Windows RDP/SMB Authentication Failures
-![Windows RDP/SMB Auth Fail](./docs/assets/images/soc-honeynet/windows-rdp-smb.png)<br>
+![Windows RDP/SMB Auth Fail](./assets/images/soc-honeynet/windows-rdp-smb.png)<br>
 
 ### MS SQL Server Authentication Failures
-![MSSQL Server Auth Fail](./docs/assets/images/soc-honeynet/mssql.png)<br>
+![MSSQL Server Auth Fail](./assets/images/soc-honeynet/mssql.png)<br>
 
 ## Metrics Before Hardening / Security Controls
 
@@ -79,16 +86,16 @@ Stop Time	2023-07-10 22:23:51
 ```All map queries returned no results due to no instances of malicious activity for the 24-hour period after hardening.```
 
 ### NSG Allowed Malicious Inbound Flows
-![NSG Allowed Inbound Malicious Flows](./docs/assets/images/soc-honeynet/nsg-after.png)<br>
+![NSG Allowed Inbound Malicious Flows](./assets/images/soc-honeynet/nsg-after.png)<br>
 
 ### Linux SSH Authentication Failures
-![Linux Syslog Auth Fail](./docs/assets/images/soc-honeynet/syslog-after.png)<br>
+![Linux Syslog Auth Fail](./assets/images/soc-honeynet/syslog-after.png)<br>
 
 ### Windows RDP/SMB Authentication Failures
-![Windows RDP/SMB Auth Fail](./docs/assets/images/soc-honeynet/windows-rdp-smb-after.png)<br>
+![Windows RDP/SMB Auth Fail](./assets/images/soc-honeynet/windows-rdp-smb-after.png)<br>
 
 ### MS SQL Server Authentication Failures
-![MSSQL Server Auth Fail](./docs/assets/images/soc-honeynet/mssql-after.png)<br>
+![MSSQL Server Auth Fail](./assets/images/soc-honeynet/mssql-after.png)<br>
 
 ## Metrics After Hardening 
 
