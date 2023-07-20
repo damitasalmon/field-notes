@@ -6,9 +6,10 @@ tags:
 
 ## Background
 
-<p class="response" >I build this sample Azure infrastructure as a part of a skills-based assessment (SBA). This project was graded, so a many of the resources include my initials and/or last name to confirm it is my work. The alternative assignment was to present a business case convincing/explaining why the company should migrate to Azure.</p>
+I built this sample Azure infrastructure as a part of a skills-based assessment (SBA). This project was graded, so a many of the resources include my initials and/or last name to confirm it is my work. The alternative assignment was to present a business case convincing/explaining why the company should migrate to Azure.
 
-**Note: You can click on the images to zoom-in.** 
+!!! note
+    You can click on the images to zoom-in. 
 
 ## Scenario
 
@@ -46,7 +47,7 @@ tags:
 
 <figure markdown>
   ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
-  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
+  <figcaption>The created department resource groups.</figcaption>
 </figure>
 
 ### <a name="Part 2">Part 2: Set up VNets for each department.</a>
@@ -61,7 +62,7 @@ tags:
 
 <figure markdown>
   ![Vnets](./assets/images/azure-virtual/2023-06-14_1686773183-vnets.png){ width="600" }
-  <figcaption class="response">The created VNet for each Department.</figcaption class="response">
+  <figcaption>The created VNet for each Department.</figcaption >
 </figure>
 
 
@@ -76,21 +77,21 @@ tags:
 | IT | Windows Server OS | ITAdmin |
 | HR | Windows OS | HRAdmin |
 
-<p class="response">Created VMs for each department, displaying the network configuration and IP address information (property tab).</p>
+<p>Created VMs for each department, displaying the network configuration and IP address information (property tab).</p>
 
 <figure markdown>
   ![MAS VM](./assets/images/azure-virtual/2023-06-14_1686780275-mas-vm.png){ width="700" }
-  <figcaption class="response">MAS Department VM.</figcaption class="response">
+  <figcaption>MAS Department VM.</figcaption>
 </figure>
 
 <figure markdown>
   ![IT VM](./assets/images/azure-virtual/2023-06-14_1686780198-IT-vm.png){ width="700" }
-  <figcaption class="response">IT Department VM.</figcaption class="response">
+  <figcaption>IT Department VM.</figcaption>
 </figure>
 
 <figure markdown>
   ![HR VM](./assets/images/azure-virtual/2023-06-14_1686780133-hr-vm.png){ width="700" }
-  <figcaption class="response">HR Department VM.</figcaption class="response">
+  <figcaption>HR Department VM.</figcaption>
 </figure>
 
 ### <a name="Part 4">Part 4: Create and Apply Security Group Policies to each department.</a>
@@ -117,28 +118,28 @@ tags:
   </tr>
 </table>
 
-**<p class="response">Network Security Groups:</p>**
+**<p>Network Security Groups:</p>**
 
 <figure markdown>
   ![All NSGs](./assets/images/azure-virtual/2023-06-14_1686775492-nsg.png){ width="600" }
-  <figcaption class="response">Applied Security Group Policies for each department.</figcaption class="response">
+  <figcaption>Applied Security Group Policies for each department.</figcaption>
 </figure>
 
-**<p class="response">Firewall Rules for each Department:</p>**
+**<p>Firewall Rules for each Department:</p>**
 
 <figure markdown>
   ![MAS NSG](./assets/images/azure-virtual/2023-06-14_1686780527-mas-nsg.png){ width="700" }
-  <figcaption class="response">MAS NSG.</figcaption class="response">
+  <figcaption>MAS NSG.</figcaption>
 </figure>
 
 <figure markdown>
   ![IT NSG](./assets/images/azure-virtual/2023-06-14_1686780466-it-nsg.png){ width="700" }
-  <figcaption class="response">IT NSG.</figcaption class="response">
+  <figcaption>IT NSG.</figcaption>
 </figure>
 
 <figure markdown>
   ![HR NSG](./assets/images/azure-virtual/2023-06-14_1686780391-hr-nsg.png){ width="700" }
-  <figcaption class="response">HR NSG.</figcaption class="response">
+  <figcaption>HR NSG.</figcaption>
 </figure>
 
 ### <a name="Part 5">Part 5: Set up Database.</a>
@@ -159,38 +160,38 @@ Database developers want to access the above listed department databases. They a
 
 **Note: The DB software needs to be installed on the IT Virtual machine.**
 
-**<p class="response">The created database for each departments:</p>**
+**<p>The created database for each departments:</p>**
 
 <figure markdown>
   ![MAS DB](./assets/images/azure-virtual/2023-06-14_1686789318-mas-db.png){ width="600" }
-  <figcaption class="response">MAS Database (PostgreSQL)</figcaption class="response">
+  <figcaption>MAS Database (PostgreSQL).</figcaption>
 </figure>
 
 <figure markdown>
   ![IT DB](./assets/images/azure-virtual/2023-06-14_1686788640-IT-db.png){ width="600" }
-  <figcaption class="response">IT Database (MySQL)</figcaption class="response">
+  <figcaption>IT Database (MySQL).</figcaption>
 </figure>
 
 <figure markdown>
   ![HR DB](./assets/images/azure-virtual/2023-06-14_1686789347-hr-db.png){ width="600" }
-  <figcaption class="response">HR Database (PostgreSQL)</figcaption class="response">
+  <figcaption>HR Database (PostgreSQL).</figcaption>
 </figure>
 
-**<p class="response">Successful access page to each database:</p>**
+**<p>Successful access page to each database:</p>**
 
 <figure markdown>
   ![MAS DB Connection](./assets/images/azure-virtual/2023-06-14_1686789211-mas-db-connection.png){ width="700" }
-  <figcaption class="response">MAS DB Connection via IT VM</figcaption class="response">
+  <figcaption>MAS DB Connection via IT VM.</figcaption>
 </figure>
 
 <figure markdown>
   ![IT DB Connection](./assets/images/azure-virtual/2023-06-14_1686786048-connection-to-IT-db-via-IT-VM.png){ width="700" }
-  <figcaption class="response">IT DB Connection via IT VM</figcaption class="response">
+  <figcaption>IT DB Connection via IT VM.</figcaption>
 </figure>
 
 <figure markdown>
   ![HR DB Connection](./assets/images/azure-virtual/2023-06-14_1686789066-hr-db-connection.png){ width="700" }
-  <figcaption class="response">HR DB Connection via IT VM</figcaption class="response">
+  <figcaption>HR DB Connection via IT VM.</figcaption>
 </figure>
 
 ### <a name="Part 6">Part 6: Set up a Web App for the Marketing and Sales (MAS) Department.</a>
@@ -203,12 +204,12 @@ Database developers want to access the above listed department databases. They a
 
 <figure markdown>
   ![Web App](./assets/images/azure-virtual/2023-06-14_1686792865-web-app-portal-overview.png){ width="700" }
-  <figcaption class="response">Created Web Service.</figcaption class="response">
+  <figcaption>Created Web Service.</figcaption>
 </figure>
 
 <figure markdown>
   ![Web App Welcome Page](./assets/images/azure-virtual/2023-06-14_1686792805-web-app.png){ width="700" }
-  <figcaption class="response">Web Server home page showing, "Welcome to AZFK-Tech World."</figcaption class="response">
+  <figcaption>Web Server home page showing, "Welcome to AZFK-Tech World."</figcaption>
 </figure>
 
 
@@ -223,16 +224,16 @@ Database developers want to access the above listed department databases. They a
 | IT | First int + last name - IT-Storage |
 | HR | First int + last name - HR-Storage |
 
-**<p class="response">The created shared storage:</p>**
+**<p>The created shared storage:</p>**
 
 <figure markdown>
   ![Shared Storage](./assets/images/azure-virtual/2023-06-14_1686796116-storage.png){ width="700" }
-  <figcaption class="response">Storage Account Overview.</figcaption class="response">
+  <figcaption>Storage Account Overview.</figcaption>
 </figure>
 
 <figure markdown>
   ![Storage containers](./assets/images/azure-virtual/2023-06-14_1686793253-storage-containers.png){ width="700" }
-  <figcaption class="response">Storage Containers created for each department.</figcaption class="response">
+  <figcaption>Storage Containers created for each department.</figcaption>
 </figure>
 
 
@@ -240,35 +241,35 @@ Database developers want to access the above listed department databases. They a
 
 **AZFK-Tech** wants to have real-time monitoring for their VMs. Install your recommended service.
 
-<p class="response">I enabled Insights for each VM, which leverages Log Analytics Workspace and Azure Monitor.</p>
+<p>I enabled Insights for each VM, which leverages Log Analytics Workspace and Azure Monitor.</p>
 
 <figure markdown>
   ![Vm Insights enabled](./assets/images/azure-virtual/2023-06-14_1686790650-vm-insights.png){ width="700" }
-  <figcaption class="response">TVM Insights enabled for each VM.</figcaption class="response">
+  <figcaption>TVM Insights enabled for each VM.</figcaption>
 </figure>
 
 
 <figure markdown>
   ![Vm Insights](./assets/images/azure-virtual/2023-06-14_1686791829-logs-1.png){ width="700" }
-  <figcaption class="response">The collected data from VM Insights.</figcaption class="response">
+  <figcaption>The collected data from VM Insights.</figcaption>
 </figure>
 
 ## <a name="Part 9">Questions</a>
 
 **1. Why did we need to create a different VNet for each department?**
 
-<p class="question-response"> We created separate VNets for each department because it was a specific requirement/security policy of the company and were created to match the organizational structure.</p>
+<p> We created separate VNets for each department because it was a specific requirement/security policy of the company and were created to match the organizational structure.</p>
 
-<p class="question-response">Based on the project requirements and network security groups, we can speculate that the company wishes to enforce some level of network isolation between departments, likely to prevent unauthorized access or chance of data breach. It also simplifies network management since because each VNet was defined with its own CIDR address block and subnets.</p>
+<p>Based on the project requirements and network security groups, we can speculate that the company wishes to enforce some level of network isolation between departments, likely to prevent unauthorized access or chance of data breach. It also simplifies network management since because each VNet was defined with its own CIDR address block and subnets.</p>
 
 
 **2. Why did MAS and HR have specific rules in the Security Group Policies?**
 
-<p class="question-response">We can only speculate since no reason was specified, but it was most likely requested to enforce the principle of least privilege or to enable RBAC and restrict access to resources only to members of the respective department. Human Resources, especially, would want to ensure data confidentiality since they have access to sensitive and confidential personal employee data and would want to prevent any unauthorized access.</p>
+<p>We can only speculate since no reason was specified, but it was most likely requested to enforce the principle of least privilege or to enable RBAC and restrict access to resources only to members of the respective department. Human Resources, especially, would want to ensure data confidentiality since they have access to sensitive and confidential personal employee data and would want to prevent any unauthorized access.</p>
 
 **3.  Name some additional Azure features that can be used to safeguard and protect corporate data.**
 
-  <ul class="question-response">
+  <ul >
     <li>Azure Active Directory (Azure AD) could be used for identity and access management services, which would give the organization centralized control over user identities and access to resources. It would allow for multi-factor authentication, conditional access policies, and provide better security and management around access control.</li>
     <li>HR could take advantage of Azure Information Protection (AIP) to help classify, label, and protect sensitive information by applying encryption, rights management, and access controls. Azure DDoS Protection would help safeguard frequently accessed cloud resources, like the MAS web app, databases and corporate storage account, ensuring that the applications remain available.</li> 
     <li>With Azure Backup, the company can protect critical data against accidental deletion, ransomware, or other data loss.</li>
@@ -276,21 +277,21 @@ Database developers want to access the above listed department databases. They a
 
 **4. Why did only the MAS department get a Web App?**
 
-<p class="question-response">We made the web app accessible to the public. It's customer-facing and the function of the Marketing and Sales department might necessitate a dedicated web app as the website for the company. The web app can be tailored to providing marketing collateral and information about the company that they will use to advertise the company's services and procure new business. </p>
+<p>We made the web app accessible to the public. It's customer-facing and the function of the Marketing and Sales department might necessitate a dedicated web app as the website for the company. The web app can be tailored to providing marketing collateral and information about the company that they will use to advertise the company's services and procure new business. </p>
 	
-<p class="question-response"> Hosting certain marketing materials on the web could improve user experience and provide better customization than print materials and are easier and less expensive to update in the event of any changes. </p>
+<p> Hosting certain marketing materials on the web could improve user experience and provide better customization than print materials and are easier and less expensive to update in the event of any changes. </p>
 
 **5. What are the benefits of collecting monitoring data? How long should data be stored?**
 
-<p class="question-response">Collecting monitoring data allows organizations to establish a baseline for performance, troubleshoot and identify issues, monitor and manage costs, monitor access control patterns, optimize and perform proactive/preventative maintenance where needed. By analyzing the data, organizations can make informed decisions around system administration and user experience. Additionally, it may be required if the company is subject to regulatory compliance.</p>
+<p>Collecting monitoring data allows organizations to establish a baseline for performance, troubleshoot and identify issues, monitor and manage costs, monitor access control patterns, optimize and perform proactive/preventative maintenance where needed. By analyzing the data, organizations can make informed decisions around system administration and user experience. Additionally, it may be required if the company is subject to regulatory compliance.</p>
 
 **6. How can you reduce deployment expenses for the organization's benefit?**
 
-<ol class="question-response">
+<ol >
   <li>One way we can reduce deployment expenses is by <b>right-sizing resources.</b> If we review and optimize virtual machines, storage accounts, and databases we can ensure that we are not over-provisioning and paying for unused/unnecessary capacity. </li>
   <li>We can use tools like <b>Azure Cost Management</b> to monitor and manage costs and <b>Azure Monitor</b> to identify optimization and cost-saving opportunities.</li>
   <li>Another way we can reduce deployment expenses is by using <b>Azure Reserved Virtual Machine Instances</b> for long-term deployments. We would pay upfront with a longer commitment term, but save money on the resources by reserving them in advance.</li>
   <li>Additionally, if we have existing software licenses, from the on-premises environment, we can save by using the <b>Azure Hybrid Benefit</b> to apply those licenses to Azure VMs.</li>
 </ol>
 
-<p class="question-response">There are more ways to save than this, but these are just a few ideas. </p>
+<p>There are more ways to save than this, but these are just a few ideas. </p>
