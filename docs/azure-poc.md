@@ -8,7 +8,7 @@ tags:
 
 I built this sample Azure infrastructure as a part of a skills-based assessment (SBA). This project was graded, so a many of the resources include my initials and/or last name to confirm it is my work. The alternative assignment was to present a business case convincing/explaining why the company should migrate to Azure.
 
-!!! note
+!!! tip
     You can click on the images to zoom-in. 
 
 ## Scenario
