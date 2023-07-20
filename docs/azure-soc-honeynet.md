@@ -8,10 +8,10 @@ tags:
 - log-analytics
 - microsoft-defender
 - NIST-SP-800-53-r4
-- NIST-SP-800-61-r2
 - PowerShell
 - KQL
 ---
+
 # Building a SOC + Honeynet in Azure (w/Live Traffic)
 <!-- Insert Project Image -->
 
@@ -23,48 +23,82 @@ In this project, I build a small-scale honeynet in Azure. I utilized Log Analyti
 - Syslog (Linux Event Logs)
 - SecurityAlert (Log Analytics Alerts Triggered)
 - SecurityIncident (Incidents created by Sentinel)
-- AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
+- AzureNetworkAnalytics_CL (Malicious Flows allowed into my honeynet)
 
 <!-- ## Architecture Before Hardening / Security Controls
 ![Architecture Diagram]() --> 
 
-The architecture of the mini honeynet in Azure consists of the following components:
+The architecture of the mini honeynet in Azure consists of the following tools and components:
 
 - Virtual Network (VNet)
 - Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 linux)
-- Log Analytics Workspace
+- Virtual Machines (2 Windows, 1 Linux)
 - Azure Key Vault
 - Azure Storage Account
-- Microsoft Sentinel
+- Microsoft SQL Server
+- SQL Server Management Studio (SSMS)
+- Azure Active Directory
+- PowerShell
+
+Additionally, the SOC utilized the following tools, components and regulations: 
+
+- Microsoft Sentinel (SIEM)
 - Microsoft Defender for Cloud
+  - [NIST SP 800-53 Revision 4](https://csrc.nist.gov/publications/detail/sp/800-53/rev-4/archive/2015-01-22)
+  - [PCI DSS 3.2.1](https://listings.pcisecuritystandards.org/documents/PCI_DSS-QRG-v3_2_1.pdf) 
+- Log Analytics Workspace
+- Windows Event Viewer
+- Kusto Query Language (KQL)
 
 To collect the metrics for the insecure environment, all resources were originally deployed, exposed to the  public internet. The Virtual Machines had their Network Security Groups open (allowing all traffic) and built-in firewalls disabled. All other resources were deployed with endpoints visible to the public Internet.
 
-### Implementing Security Controls
+## Stage I - Building the honeynet
+The mini-honeynet consists of three virtual machines - two Windows VMs (one used for attack) and one Linux VMs.
 
+### Creating Resources
+
+Two resource groups were created - one for the resources to be exposed and another for the attack machine. 
+
+### Exposing the resources
+
+## Stage II - Building the SOC
+
+### Log Analytics and Microsoft Sentinel (SIEM) Setup + Data Ingestion
+#### Enable Microsoft Defender for Cloud 
+#### Configure Log Collection for Virtual Machines
+##### Tenant Level Logging
+##### Subscription Level Logging
+##### Resource Level Logging
+
+### Configure Microsoft Sentinel
+#### World Attack Maps Construction
+#### Analytics, Alerting and Incident Generation
+#### Attack Traffic Generation (Simulated Attacks)
+
+### Implementing Security Controls
 
 To collect the metrics for the secured environment, Network Security Groups were hardened by blocking ALL traffic (with the exception of my workstation), and built-in firewalls enabled. Azure Key Vault and Storage Container were protected by disabling access to public endpoints and replacing them with rivate endpoints.
 
-## Attack Maps Before Hardening / Security 
+### Attack Maps Before Hardening / Security 
 
-### NSG Allowed Malicious Inbound Flows
+#### NSG Allowed Malicious Inbound Flows
 ![NSG Allowed Inbound Malicious Flows](./assets/images/soc-honeynet/nsg.png)<br>
 
-### Linux SSH Authentication Failures
+#### Linux SSH Authentication Failures
 ![Linux Syslog Auth Fail](./assets/images/soc-honeynet/syslog.png)<br>
 
-### Windows RDP/SMB Authentication Failures
+#### Windows RDP/SMB Authentication Failures
 ![Windows RDP/SMB Auth Fail](./assets/images/soc-honeynet/windows-rdp-smb.png)<br>
 
-### MS SQL Server Authentication Failures
+#### MS SQL Server Authentication Failures
 ![MSSQL Server Auth Fail](./assets/images/soc-honeynet/mssql.png)<br>
 
-## Metrics Before Hardening / Security Controls
+### Metrics Before Hardening / Security Controls
 
-The following table shows the metrics we measured in our insecure environment for 24 hours: <br>
+The following table shows the measurements taken in the insecure environment for 24 hours: <br>
 Start Time	2023-07-09 22:23:51 <br>
 Stop Time	2023-07-10 22:23:51
+
 
 | Metric                   | Count
 | ------------------------ | -----
@@ -73,6 +107,13 @@ Stop Time	2023-07-10 22:23:51
 | SecurityAlert            | 6
 | SecurityIncident         | 359
 | AzureNetworkAnalytics_CL | 2450
+
+
+## Stage III - Incident Response
+
+## Stage IV - Secure Cloud Configuration
+
+### Enabling Regulatory Compliance in MDC
 
 <!-- ## Architecture After Hardening / Security Controls
 ![Architecture Diagram]() --> 
