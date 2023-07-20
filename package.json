@@ -20,8 +20,11 @@
   },
   "homepage": "https://gitlab.com/iruldanet/field-notes#readme",
   "dependencies": {
-    "bourbon": "^7.3.0",
     "autoprefixer": "^10.4.2",
+    "bourbon": "^7.3.0",
     "sass": "^1.49.8"
+  },
+  "devDependencies": {
+    "eyeglass": "^3.0.3"
   }
 }
