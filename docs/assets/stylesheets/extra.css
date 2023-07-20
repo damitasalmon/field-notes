@@ -1,14 +1,10 @@
-.response, .chateau {
-  color: #1EB090;
+.response {
+  color: #0FC937;
 }
 
 .question-response {
-  color: #1EB090;
+  color: #0FC937;
   font-style: italic;
-}
-
-.bright-heading {
-  color: #C97104;
 }
 
 /*# sourceMappingURL=extra.css.map */

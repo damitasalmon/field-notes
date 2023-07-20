@@ -6,8 +6,8 @@ site_dir: public
 site_description: A collection of tech notes and lab write-ups, for my own reference.
 
 #Repository
-repo_url: https://gitlab.com/iruldanet/field-notes
-repo_name: iruldanet/field-notes
+#repo_url: https://gitlab.com/iruldanet/field-notes
+#repo_name: iruldanet/field-notes
 
 #Configuration
 theme:
@@ -17,14 +17,15 @@ theme:
   palette: 
     # Palette toggle for dark mode
     - scheme: slate
-      primary: teal
-      accent: indigo
+      primary: green
+      accent: deep orange
       toggle:
         icon: material/weather-night
         name: Switch to light mode
     # Palette toggle for light mode
     - scheme: default
-      primary: teal
+      primary: green
+      accent: deep orange
       toggle:
         icon: material/weather-sunny 
         name: Switch to dark mode
@@ -68,7 +69,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/iruldanet
+      link: https://github.com/damitasalmon
   generator: false
 
 extra_css:
