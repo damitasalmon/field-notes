@@ -3,7 +3,9 @@ tags:
 - python
 ---
 
-General Information
+# Python Resources
+
+###### General Information
 [Built-in Functions — Python 3.11.4 documentation](https://docs.python.org/3/library/functions.html)
 [Python Keywords](https://www.w3schools.com/python/python_ref_keywords.asp)
 [Different Arithmetic operators in Python | Flexiple Tutorials | Python](https://flexiple.com/python/arithmetic-operators-in-python/)
