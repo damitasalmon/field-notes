@@ -8,20 +8,20 @@ tags:
 # Vulnerability Management with Greenbone OpenVAS
 
 ## Objectives
-1. Prepare Vulnerability Management Scanner
-2. Create Client Virtual Machine and Make it Vulnerable
-3. Perform Unauthenticated Scan
-4. Make Configurations for Authenticated Scans (VM)
-5. Make Configurations for Authenticated Scans (OpenVAS)
-6. Perform Authenticated Scan against our Vulnerable Windows VM
-7. Remediate Vulnerabilities
-8. Verify Remediation
+1. [Prepare Vulnerability Management Scanner](#Part-1)
+2. [Create Client Virtual Machine and Make it Vulnerable](#Part-2)
+3. [Perform Unauthenticated Scan](#Part-3)
+4. [Make Configurations for Authenticated Scans (VM)](#Part-4)
+5. [Make Configurations for Authenticated Scans (OpenVAS)](#Part-5)
+6. [Perform Authenticated Scan against our Vulnerable Windows VM](#Part-6)
+7. [Remediate Vulnerabilities](#Part-7)
+8. [Verify Remediation](#Part-8)
    
 !!! info
 
     The goal of the lab is to configure and explore the platform, not to practice remediation. I will perform some minor vulnerability remediation, but only to test how the scans change in response.</p>
 
-### Prepare Vulnerability Management Scanner
+### <a name="Part-1">Prepare Vulnerability Management Scanner</a>
 
 From the [Azure Portal](https://portal.azure.com) → Go to the Marketplace → “OpenVAS secured and supported by HOSSTED” and proceeded to create a "Vulnerability-Management" resource group and VM.
 
@@ -47,8 +47,7 @@ After the VM was created, I used PuTTy to SSH into it and waited for the initial
   <figcaption>OpenVAS connection via PuTTy</figcaption>
 </figure>
 
-### Create a Vulnerable Client 
-
+### <a name="Part-2">Create a Vulnerable Client </a>
 Back in the [Azure Portal](https://portal.azure.com/) → Virtual Machines → Create
 In the same resource group and the same Vnet as OpenVAS.
 
@@ -72,7 +71,7 @@ After the VM was created, I RDP'd into the machine to make it vulnerable by disa
   <figcaption>Installing insecure software on Windows 10 VM</figcaption>
 </figure>
 
-### Configure OpenVAS to Perform Unauthenticated Scan
+### <a name="Part-3">Configure OpenVAS to Perform Unauthenticated Scan </a>
 
 Login to OpenVAS with the URL and credentials provided during initial config  → Assets → Hosts → New Host
 
@@ -146,7 +145,7 @@ Initiated the first scan of the Windows 10 VM client
   <figcaption>TLS scan results</figcaption>
 </figure>
 
-### Make Configurations for Credentialed Scans (Within VM)
+### <a name="Part-4">Make Configurations for Credentialed Scans (Within VM) </a>
 
 Making some changes to the Windows 10 client to allow OpenVAS to preform a more in-depth authenticated/credentialed scan. 
 
@@ -179,7 +178,7 @@ Made the following registry changes: <br />
      <figcaption>Setting the Registry Key</figcaption>
 </figure>
 
-### Make Configurations for Credentialed Scans (OpenVAS)
+### <a name="Part-5">Make Configurations for Credentialed Scans (OpenVAS) </a>
 
 Created a new credential under, Configuration → Credentials → New Credential → Added username & password for Windows 10 VM client under "Azure VM Credentials"
 
@@ -195,7 +194,7 @@ Created a new target, and attached the new credentials <br />
 </figure>
 
 
-### Execute Credentialed Scan against our Vulnerable Windows VM
+### <a name="Part-6">Execute Credentialed Scan against our Vulnerable Windows VM </a>
 
 In OpenVAS, Scans → Tasks
 
@@ -244,7 +243,7 @@ The SMB results show that OpenVAS was able to authenticate successfully.
 </figure>
 
 
-### Remediate Vulnerabilities
+### <a name="Part-7">Remediate Vulnerabilities </a>
 
 In the Win10-Vulnerable VMm, I uninstalled Adobe Reader, VLC Player, and Firefox. I initially intended to update but some of the versions were too old and it was simpler to uninstall rather than download new versions and reinstall everything since we don't actually need to use anything. 
 
@@ -266,7 +265,7 @@ I also tried enabling the firewall, but it affected OpenVAS' ability to perform 
 </figure>
 
 
-### Verify Remediation
+### <a name="Part-8">Verify Remediation </a>
 
 Re-initiated the “Credentialed Scan - Azure Vulnerable VMs ” task and observed the results.
 
