@@ -40,7 +40,7 @@ From the [Azure Portal](https://portal.azure.com) → Go to the Marketplace → 
   <figcaption>OpenVAS VM Overview</figcaption>
 </figure>
 
-After the VM was created, I used PuTTy to SSH into it and waited for the initial configuration to complete. 
+After the VM was created, I used PuTTy to SSH into the server and allowed the initial configuration to complete. 
 
 <figure markdown>
   ![VM Connection via PuTTy](./assets/images/openvas-test/openvas-putty.png){ width="700" }
@@ -49,7 +49,7 @@ After the VM was created, I used PuTTy to SSH into it and waited for the initial
 
 ### <a name="Part-2">Create a Vulnerable Client </a>
 Back in the [Azure Portal](https://portal.azure.com/) → Virtual Machines → Create
-In the same resource group and the same Vnet as OpenVAS.
+In the same resource group and the same VNet as OpenVAS.
 
 <figure markdown>
   ![Vulnerable Client in Azure](./assets/images/openvas-test/win10-vulnerable-overview.png){ width="700" }
@@ -156,7 +156,8 @@ Disabled User Account Control
   <figcaption>Disable UAC</figcaption>
 </figure>
 
-Made the following registry changes: <br />
+To allow OpenVAS to authenticate, I made the following registry changes: <br />
+
 - Enabled Remote Registry (services.msc) <br />
 - Launching Registry Editor (regedit.exe - as Admin) <br />
 - Navigated to: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System <br />
@@ -209,7 +210,8 @@ Initialized the credentialed scan and reviewed the results.
 
 #### Credentialed Scan Results
 
-Now we can get 
+Now we can see the insecure software installed earlier, flagged for remediation the scan results. 
+
 <figure markdown>
   ![Credentialed Scan Results](./assets/images/openvas-test/cred-scan-results.png){ width="700" }
   <figcaption>Creating credentialed scan</figcaption>
@@ -276,7 +278,7 @@ Re-initiated the “Credentialed Scan - Azure Vulnerable VMs ” task and observ
 
 ### Reflection
 
-While the most critical vulnerabilities appear to have been mitigated, it's interesting how little effect applying system updates changed the scan. Although I restarted the VM a few times during and after the update process, I wonder if timing is a factor (should I have waited an hour or so before running the scan again?) . I would be very interested in completing this lab again, but also using Nessus to compare the scan results from both platforms. 
+While the most critical vulnerabilities appear to have been mitigated, it's interesting how little effect applying system updates changed the scan. Although I restarted the VM a few times during and after the update process, I wonder if timing is a factor (should I have waited an hour or so before running the scan again?). I'm very interested in configuring a local version of this lab, but also including Nessus and possibly Qualys vulnerability scanners to compare the scan results. 
 
 !!! tip
     Click to zoom on any images. 
