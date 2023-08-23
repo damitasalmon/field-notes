@@ -70,6 +70,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/damitasalmon
+    - icon: fontawesome/brands/gitlab
+      link: https://gitlab.com/iruldanet
   generator: false
 
 extra_css:
