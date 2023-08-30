@@ -12,13 +12,20 @@ tags:
 - KQL
 ---
 
+<!-- 
+<figure markdown>
+  ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
+  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
+</figure> 
+-->
+
 !!! warning
     This page is a work in progress. 
 
 # Building a SOC + Honeynet in Azure (w/Live Traffic)
-![Architecture Diagram](./Architecture-Topology/topology-diagram-2.png)
+![Architecture Diagram](./assets/images/soc-honeynet/topology-diagram-2.png)
 
-## Introduction
+## Overview
 
 In this project, I build a small-scale honeynet in Azure. I utilized Log Analytics to ingest logs from various sources that Microsoft Sentinel would leverage to build attack maps, trigger alerts, and create incidents. I configured log collection on the insecure environment, set security metrics then observed the environment for 24 hours. After investigating the incidents that Microsoft Sentinel generated during that period, security controls were applied to address the incidents and harden the environment. A second 24-hour observation was conducted to collect new data on the security metrics post-remediation. The collected metrics were:
 
@@ -29,7 +36,7 @@ In this project, I build a small-scale honeynet in Azure. I utilized Log Analyti
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into my honeynet)
 
 ## Architecture Before Hardening / Security Controls
-![Architecture Diagram](./Architecture-Topology/architecture-before.png)<br>
+![Architecture Diagram](./assets/images/soc-honeynet/architecture-before.png)<br>
 
 The architecture of the mini honeynet in Azure consists of the following tools and components:
 
@@ -87,34 +94,17 @@ To collect the metrics for the secured environment, Network Security Groups were
 #### NSG Allowed Malicious Inbound Flows
 ![NSG Allowed Inbound Malicious Flows](./assets/images/soc-honeynet/nsg.png)<br>
 
-<figure markdown>
-  ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
-  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
-</figure>
-
 #### Linux SSH Authentication Failures
 ![Linux Syslog Auth Fail](./assets/images/soc-honeynet/syslog.png)<br>
 
-<figure markdown>
-  ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
-  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
-</figure>
 
 #### Windows RDP/SMB Authentication Failures
 ![Windows RDP/SMB Auth Fail](./assets/images/soc-honeynet/windows-rdp-smb.png)<br>
 
-<figure markdown>
-  ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
-  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
-</figure>
 
 #### MS SQL Server Authentication Failures
 ![MSSQL Server Auth Fail](./assets/images/soc-honeynet/mssql.png)<br>
 
-<figure markdown>
-  ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
-  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
-</figure>
 
 ### Metrics Before Hardening / Security Controls
 
@@ -149,34 +139,21 @@ Stop Time	2023-07-10 22:23:51
 ### NSG Allowed Malicious Inbound Flows
 ![NSG Allowed Inbound Malicious Flows](./assets/images/soc-honeynet/nsg-after.png)<br>
 
-<figure markdown>
-  ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
-  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
-</figure>
+
 
 ### Linux SSH Authentication Failures
 ![Linux Syslog Auth Fail](./assets/images/soc-honeynet/syslog-after.png)<br>
 
-<figure markdown>
-  ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
-  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
-</figure>
+
 
 ### Windows RDP/SMB Authentication Failures
 ![Windows RDP/SMB Auth Fail](./assets/images/soc-honeynet/windows-rdp-smb-after.png)<br>
 
-<figure markdown>
-  ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
-  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
-</figure>
+
 
 ### MS SQL Server Authentication Failures
 ![MSSQL Server Auth Fail](./assets/images/soc-honeynet/mssql-after.png)<br>
 
-<figure markdown>
-  ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
-  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
-</figure>
 
 ## Metrics After Hardening 
 
