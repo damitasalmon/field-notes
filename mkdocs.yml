@@ -46,7 +46,7 @@ plugins:
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - tags:
       tags_file: tags.md
-  - lightbox
+  - glightbox
   
 # Extensions
 markdown_extensions:
