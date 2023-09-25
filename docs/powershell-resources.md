@@ -17,6 +17,6 @@ Here's a small collection of resources I've found particularly useful in writing
 [MorganTechSpace - Office 365 | Azure AD | Articles, FAQs, Scripts](https://morgantechspace.com/)<br />
 [SharePoint Diary - Salaudeen Rajack's SharePoint Experiences!](https://www.sharepointdiary.com/)
 
-#### PowerShell Errors
+#### Errors & Fixes
 [How to fix "running scripts is disabled on this system"?](https://iruldanet.gitlab.io/field-notes/running-ps-scripts-error/)
 
