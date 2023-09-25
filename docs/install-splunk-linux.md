@@ -16,5 +16,18 @@ You can download Splunk from the website. For Ubuntu, you can download the debia
 
 On Ubuntu this will download the tarball. Move the tarball to the `/opt` folder:
 
-`sudo mv <splunk tarball file>.tgz /opt`
+``` sh
+sudo mv \<splunk tarball\>.tgz /opt`
+cd /opt
+sudo tar -xvzf \<splunk tarball\>.tgz
+```
+
+There should be a Splunk folder extracted to the /opt folder. To start, first navigate to the `bin` folder:
+
+``` sh
+cd splunk/bin/
+sudo ./splunk start --accept-license
+```
+
+Create Admin username and password. Splunk is served on port 8000 by default. 
 
