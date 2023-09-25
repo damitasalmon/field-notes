@@ -2,6 +2,8 @@
 tags:
 - linux
 - openvpn
+
+date: 2023-09-24
 ---
 
 # OpenVPN Linux

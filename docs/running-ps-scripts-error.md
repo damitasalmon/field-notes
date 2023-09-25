@@ -3,6 +3,8 @@ tags:
 - powershell
 - windows
 - error
+
+date: 2023-09-24
 ---
 
 # How to fix "running scripts is disabled on this system"?
