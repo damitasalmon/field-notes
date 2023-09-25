@@ -13,20 +13,30 @@ Install Mkdocs and dependencies if needed.
 - Github CLI
 - VS Code
   
-#### Create a virtual environment
+#### Create a virtual environment (optional)
 
-``` sh
+``` ps
 cd \<project dir\>
 python -m venv venv
 source venv/Scripts/activate
 ```
 
-#### with pip 
+On macOS:
+``` sh
+source venv/bin/activate
+```
+#### Install with pip 
 
 ``` py
 pip install mkdocs
 pip install mkdocs-material
+```
+#### Install with python (w/o venv)
 
+On Windows:
+``` ps
+python -m pip install mkdocs
+python -m pip install mkdocs-material
 ```
 
 ``` py
