@@ -1,6 +1,8 @@
 ---
 tags:
 - A+
+categories:
+- Study-Guide
 ---
 
 # A+ Study Guide - Basic Network Troubleshooting Tools

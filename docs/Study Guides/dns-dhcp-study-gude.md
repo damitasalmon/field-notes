@@ -1,7 +1,8 @@
 ---
 tags: 
-- study-guide
 - A+
+categories:
+- Study-Guide
 ---
 
 # A+ Study Guide - DNS & DHCP

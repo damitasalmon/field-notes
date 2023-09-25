@@ -2,8 +2,9 @@
 tags: 
 - routing
 - swtitching
-- study-guide
 - A+
+categories:
+- Study-Guide
 ---
 
 # A+ Study Guide - Routing and Switch Characteristics
