@@ -4,24 +4,42 @@ Starting over is never easy. Here are some notes...
 
 For starters, clone your repo.
 
-
 ### Installation
 
 Install Mkdocs and dependencies if needed. 
 
-#### with pip { #with-pip data-toc-label="with pip" }
+#### Dependencies 
+- Python
+- Github CLI
+- VS Code
+  
+#### Create a virtual environment
 
 ``` sh
-pip install mkdocs-material
+cd \<project dir\>
+python -m venv venv
+source venv/Scripts/activate
 ```
 
+#### with pip 
+
+``` py
+pip install mkdocs
+pip install mkdocs-material
+
 ```
+
+``` py
 pip install -r requirements.txt
 ```
 
-
 This will automatically install compatible versions of all dependencies:
 [MkDocs], [Markdown], [Pygments] and [Python Markdown Extensions] + all of the plugins you've added.
+
+#### Serve Locally
+ ```
+ mkdocs serve
+ ```
 
 ## How to upgrade
 
