@@ -22,6 +22,7 @@ cd /opt
 sudo tar -xvzf \<splunk tarball\>.tgz
 ```
 
+### First Run
 There should be a Splunk folder extracted to the /opt folder. To start, first navigate to the `bin` folder:
 
 ``` sh
@@ -30,4 +31,6 @@ sudo ./splunk start --accept-license
 ```
 
 Create Admin username and password. Splunk is served on port 8000 by default. 
+
+
 
