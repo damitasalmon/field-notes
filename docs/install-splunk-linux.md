@@ -2,6 +2,8 @@
 tags: 
 - splunk
 - linux
+
+date: 2023-09-24
 ---
 
 # Download and Install Splunk Linux
