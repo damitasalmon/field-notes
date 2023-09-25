@@ -2,6 +2,7 @@
 tags:
 - powershell
 - windows
+- error
 ---
 
 # How to fix "running scripts is disabled on this system"?
