@@ -25,7 +25,7 @@ On macOS:
 ``` sh
 source venv/bin/activate
 ```
-#### Install with pip 
+#### Install with pip (venv)
 
 ``` py
 pip install mkdocs
@@ -47,8 +47,14 @@ This will automatically install compatible versions of all dependencies:
 [MkDocs], [Markdown], [Pygments] and [Python Markdown Extensions] + all of the plugins you've added.
 
 #### Serve Locally
- ```
+(venv)
+ ``` py
  mkdocs serve
+ ```
+
+Windows 
+ ``` ps
+ python -m mkdocs serve
  ```
 
 ## How to upgrade
