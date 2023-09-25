@@ -1,6 +1,6 @@
 ---
 tags:
-- resouces
+- resources
 - powershell
 - exchange
 ---
