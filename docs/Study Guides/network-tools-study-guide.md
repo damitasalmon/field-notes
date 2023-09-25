@@ -3,7 +3,7 @@ tags:
 - A+
 ---
 
-# Tech Talk - Basic Network Troubleshooting Tools
+# A+ Study Guide - Basic Network Troubleshooting Tools
 
 Describe the various hardware and software tools designed to troubleshoot and optimize networks. Give definitions and examples of usage for each tool.
 
