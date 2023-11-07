@@ -25,6 +25,9 @@ tags:
 # Building a SOC + Honeynet in Azure (w/Live Traffic)
 ![Architecture Diagram](./assets/images/soc-honeynet/topology-diagram-2.png)
 
+!!! note
+  This is a complete walkthough of the process but is a different iteration than the github repo, therefore the stats and maps will vary.
+
 ## Overview
 
 In this project, I built a small-scale honeynet in Azure. It uses Log Analytics to ingest logs from various sources that Microsoft Sentinel would leverage to build attack maps, trigger alerts, and create incidents. I configured log collection on the insecure environment, set security metrics then observed the environment for 24 hours. After investigating the incidents that Microsoft Sentinel generated during that period, security controls were applied to address the incidents and harden the environment. A second 24-hour observation was conducted to collect new data on the security metrics post-remediation. The collected metrics were:
@@ -63,9 +66,13 @@ Additionally, the SOC utilized the following tools, components and regulations:
 To collect the metrics for the insecure environment, all resources were originally deployed, exposed to the  public internet. The Virtual Machines had their Network Security Groups open (allowing all traffic) and built-in firewalls disabled. All other resources were deployed with endpoints visible to the public Internet.
 
 ## Stage I - Building the honeynet
-The mini-honeynet consists of three virtual machines - two Windows VMs (one used for attack) and one Linux VMs.
+The mini-honeynet consists of three virtual machines - two Windows VMs (one used for attack) and one Linux VM.
 
 ### Creating Resources
+
+#### Creating the Subscription
+
+
 
 Two resource groups were created - one for the resources to be exposed and another for the attack machine. 
 
