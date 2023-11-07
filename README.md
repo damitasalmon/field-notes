@@ -16,7 +16,7 @@ Install Mkdocs and dependencies if needed.
 #### Create a virtual environment (optional)
 
 ``` ps
-cd \<project dir\>
+cd <project dir>
 python -m venv venv
 source venv/Scripts/activate
 ```
@@ -74,11 +74,13 @@ pip show mkdocs-material
 
 ## More information
 
-#### Documentation
+#### MkDocs Documentation
 [MkDocs](https://www.mkdocs.org/) <br />
 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 [Installing packages using pip and virtual environments — Python Packaging User Guide](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/)
 
+#### Using Cloud9
+[Previewing running applications in the AWS Cloud9 Integrated Development Environment (IDE)](https://docs.aws.amazon.com/cloud9/latest/user-guide/app-preview.html)
 
 ###### Further Reading 
 [GitHub - squidfunk/mkdocs-material: Documentation that simply works](https://github.com/squidfunk/mkdocs-material) <br />
