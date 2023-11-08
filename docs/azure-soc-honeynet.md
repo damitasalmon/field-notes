@@ -67,7 +67,8 @@ Additionally, the SOC utilized the following tools, components and regulations:
 To collect the metrics for the insecure environment, all resources were originally deployed, exposed to the  public internet. The Virtual Machines had their Network Security Groups open (allowing all traffic) and built-in firewalls disabled. All other resources were deployed with endpoints visible to the public Internet.
 
 ## Stage I - Building the honeynet
-The mini-honeynet consists of three virtual machines - two Windows VMs (one used for attack) and one Linux VM.
+
+This project consists of two target virtual machines and one threat VM - two Windows VMs (one used for attack) and one Linux VM.
 
 ### Creating Resources
 
@@ -89,13 +90,13 @@ Later, I actually changed the alert threshold to something more reasonable like 
 
 #### Create the first resource group
 
-Next, I created the first resource group. This one will house the resources that will be exposed to attack (the honeynet). Technically, this can be created at the same time that you create your VMs. 
+Next, create the first resource group (RG-Cyber-Lab). This one will house the resources that will be exposed to attack (the honeynet). Technically, this can be created at the same time that you create your VMs. 
 
 ![Create the First Resource Group](./assets/images/soc-honeynet/create-rg-one.png)<br>
 
 #### Create Virtual Machines
 
-Next, I created two VMs. One Windows VM and one Linux VM using mostly default settings. Both were added to the RG-Cyber-Lab resource group. A Virtual Network was also created for the honeynet (Lab-VNet). 
+Next, create two VMs. One Windows VM and one Linux VM, using mostly default settings. Add both to the **RG-Cyber-Lab** resource group. Create a new Virtual Network the honeynet (Lab-VNet). 
 
 ##### Create Windows VM 
 
@@ -127,7 +128,7 @@ Networking tab:
 
 ### Exposing the resources
 
-After both VMs are deployed, I changed both Network Security Groups (NSGs) to allow all inbound traffic. Removing rules for RDP and SSH and replacing with the custom inbound rule. 
+After both VMs are deployed, change both Network Security Groups (NSGs) to allow all inbound traffic. Removing rules for RDP and SSH and replacing with the custom inbound rule. 
 
 Windows NSG before:
 
@@ -147,6 +148,31 @@ Windows NSG after:
 
 At this point both NSGs are identical. 
 
+### Create Vulnerabilities
+<!--
+#### Disable Windows Firewall
+
+First, power up and RDP into the Windows VM (windows-vm) and turn off Windows Firewall. 
+
+#### Install MS SQL Server + Utilities
+
+Install SQL Server Evaluation and create a default user, then install SSMS (SQL Server Management Studio).
+
+Enable logging for SQL Server. 
+
+Test SQL logging to make sure it’s working properly
+
+Test ping linux-vm
+
+Log into linux-vm via SSH
+
+
+Ping linux-vm
+
+Login to linux-vm
+
+
+  -->
 <!--
 
 ## Stage II - Building the SOC
