@@ -26,7 +26,7 @@ tags:
 ![Architecture Diagram](./assets/images/soc-honeynet/topology-diagram-2.png)
 
 !!! note
-  This is a complete walkthough of the process but is a different iteration than the github repo, therefore the stats and maps will vary.
+  This is a not a complete walkthough of the process but it is a more detailed different iteration of the github repo. Some of the resources have already been created so, some steps will be skipped. 
 
 ## Overview
 
@@ -72,7 +72,12 @@ The mini-honeynet consists of three virtual machines - two Windows VMs (one used
 
 #### Creating the Subscription
 
-I already had an Azure account and a subscription from a previous run-through of the project. But for the sake of screenshots, in the event I start this project again from scratch, I'm walking through this again. Don't forget to set a budget - I actually changed the threshold to something like 90%. 
+I already had an Azure account, a tenant (which I renamed + added a custom domain before this run) and a subscription from a previous run of the project. Here is an overview for the next few steps in this section: 
+
+![stage 1 overview](./assets/images/soc-honeynet/stage-one-overview.png)<br>
+
+
+For the sake of screenshots, I'm starting at creating the subscription. Don't forget to set a budget! 
 
 ![Creating Subscription](./assets/images/soc-honeynet/create-sub-01.png)<br>
 
@@ -80,7 +85,11 @@ I already had an Azure account and a subscription from a previous run-through of
 
 ![Creating Subscription Budget](./assets/images/soc-honeynet/create-sub-03.png)<br>
 
-Next, resource groups were created - one for the resources to be exposed and another for the attack machine. 
+Later, I actually changed the alert threshold to something more reasonable like 90%.
+
+#### Create the first resource group
+
+Next, I created the first resource group. This one will house the resources that will be exposed to attack (the honeynet)
 
 
 
