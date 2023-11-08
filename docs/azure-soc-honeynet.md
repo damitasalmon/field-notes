@@ -72,9 +72,17 @@ The mini-honeynet consists of three virtual machines - two Windows VMs (one used
 
 #### Creating the Subscription
 
+I already had an Azure account and a subscription from a previous run-through of the project. But for the sake of screenshots, in the event I start this project again from scratch, I'm walking through this again. Don't forget to set a budget - I actually changed the threshold to something like 90%. 
+
+![Creating Subscription](./assets/images/soc-honeynet/create-sub-01.png)<br>
+
+![Creating Subscription Advanced](./assets/images/soc-honeynet/create-sub-02.png)<br>
+
+![Creating Subscription Budget](./assets/images/soc-honeynet/create-sub-03.png)<br>
+
+Next, resource groups were created - one for the resources to be exposed and another for the attack machine. 
 
 
-Two resource groups were created - one for the resources to be exposed and another for the attack machine. 
 
 ### Exposing the resources
 
