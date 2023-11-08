@@ -1,4 +1,5 @@
 ---
+title: "Azure SOC Honeynet"
 tags: 
 - azure
 - lab
@@ -22,11 +23,11 @@ tags:
 !!! warning
     This page is a work in progress. 
 
-# Building a SOC + Honeynet in Azure (w/Live Traffic)
+# Building a SOC & (mini) Honeynet in Azure (w/Live Traffic)
 ![Architecture Diagram](./assets/images/soc-honeynet/topology-diagram-2.png)
 
 !!! note
-  This is a not a complete walkthough of the process but it is a more detailed different iteration of the github repo. Some of the resources have already been created so, some steps will be skipped. 
+  This is a not a complete walk-though of the process but it is a more detailed different iteration of the Github repo. Some of the resources have already been created so, some steps will be skipped. 
 
 ## Overview
 
@@ -70,12 +71,11 @@ The mini-honeynet consists of three virtual machines - two Windows VMs (one used
 
 ### Creating Resources
 
-#### Creating the Subscription
+#### Create the Subscription
 
 I already had an Azure account, a tenant (which I renamed + added a custom domain before this run) and a subscription from a previous run of the project. Here is an overview for the next few steps in this section: 
 
 ![stage 1 overview](./assets/images/soc-honeynet/stage-one-overview.png)<br>
-
 
 For the sake of screenshots, I'm starting at creating the subscription. Don't forget to set a budget! 
 
@@ -85,16 +85,68 @@ For the sake of screenshots, I'm starting at creating the subscription. Don't fo
 
 ![Creating Subscription Budget](./assets/images/soc-honeynet/create-sub-03.png)<br>
 
-Later, I actually changed the alert threshold to something more reasonable like 90%.
+Later, I actually changed the alert threshold to something more reasonable like 90%. </br>
 
 #### Create the first resource group
 
-Next, I created the first resource group. This one will house the resources that will be exposed to attack (the honeynet)
+Next, I created the first resource group. This one will house the resources that will be exposed to attack (the honeynet). Technically, this can be created at the same time that you create your VMs. 
 
+![Create the First Resource Group](./assets/images/soc-honeynet/create-rg-one.png)<br>
 
+#### Create Virtual Machines
+
+Next, I created two VMs. One Windows VM and one Linux VM using mostly default settings. Both were added to the RG-Cyber-Lab resource group. A Virtual Network was also created for the honeynet (Lab-VNet). 
+
+##### Create Windows VM 
+
+Basics tab:
+
+![Basics tab - Windows VM Wizard](./assets/images/soc-honeynet/create-win-vm-azure-basics-tab.png)<br>
+
+Create a new Virtual Network:
+
+![Create a new VNet](assets/images/soc-honeynet/create-win-vm-azure-vnet.png)<br>
+
+Networking tab:
+
+![Network tab - Windows VM Wizard](assets/images/soc-honeynet/create-win-vm-azure-networking.png) <br>
+
+Validation:
+
+![Windows VM Validation](assets/images/soc-honeynet/create-win-vm-azure-validation.png)
+
+##### Create Linux VM
+
+Basics tab:
+
+![Basics tab - Linux VM Wizard](assets/images/soc-honeynet/create-linux-vm-azure-basics-tab.png) <br>
+
+Networking tab:
+
+![Networking tab - Linux VM Wizard](assets/images/soc-honeynet/create-linux-vm-azure-networking.png) <br>
 
 ### Exposing the resources
 
+After both VMs are deployed, I changed both Network Security Groups (NSGs) to allow all inbound traffic. Removing rules for RDP and SSH and replacing with the custom inbound rule. 
+
+Windows NSG before:
+
+![Windows NSG before](assets/images/soc-honeynet/windows-vm-nsg-before.png) <br>
+
+Linux NSG before:
+
+![Linux NSG before](assets/images/soc-honeynet/linux-vm-nsg-before.png)  <br>
+
+Custom Inbound Rule:
+
+![Add custom Inbound Rule](assets/images/soc-honeynet/add-inbound-security-rule.png) <br>
+
+Windows NSG after: 
+
+![Windows NSG after](assets/images/soc-honeynet/windows-vm-nsg-after.png) <br>
+
+At this point both NSGs are identical. 
+<!-->
 ## Stage II - Building the SOC
 
 ### Log Analytics and Microsoft Sentinel (SIEM) Setup + Data Ingestion
@@ -210,3 +262,4 @@ In this project, a mini honeynet was constructed in Microsoft Azure utilizing Lo
 It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
 
 
+---->
