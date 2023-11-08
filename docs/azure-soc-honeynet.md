@@ -139,14 +139,16 @@ Linux NSG before:
 
 Custom Inbound Rule:
 
-![Add custom Inbound Rule](assets/images/soc-honeynet/add-inbound-security-rule.png) <br>
+![Add custom Inbound Rule](assets/images/soc-honeynet/Add-inbound-security-rule.png) <br>
 
 Windows NSG after: 
 
 ![Windows NSG after](assets/images/soc-honeynet/windows-vm-nsg-after.png) <br>
 
 At this point both NSGs are identical. 
-<!-->
+
+<!--
+
 ## Stage II - Building the SOC
 
 ### Log Analytics and Microsoft Sentinel (SIEM) Setup + Data Ingestion
