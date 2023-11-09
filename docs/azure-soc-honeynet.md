@@ -115,6 +115,8 @@ Networking tab:
 
 ##### Create Linux VM
 
+Create the Linux VM with the same user, region, resource group and networking settings. 
+
 Basics tab:
 
 ![Basics tab - Linux VM Wizard](assets/images/soc-honeynet/create-linux-vm-azure-basics-tab.png) <br>
@@ -170,6 +172,12 @@ Login to linux-vm
 
 
   -->
+#### Create Attack (Threat) VM
+
+Create another Windows VM in a different resource group, region, and virtual network. All other settings can be the same or similar. 
+
+![Attack VM Overview](assets/images/soc-honeynet/attack-vm-overview.png)
+
 <!--
 
 ## Stage II - Building the SOC
