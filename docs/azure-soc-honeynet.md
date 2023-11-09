@@ -112,9 +112,6 @@ Networking tab:
 
 ![Network tab - Windows VM Wizard](assets/images/soc-honeynet/create-win-vm-azure-networking.png) <br>
 
-Validation:
-
-![Windows VM Validation](assets/images/soc-honeynet/create-win-vm-azure-validation.png)
 
 ##### Create Linux VM
 
