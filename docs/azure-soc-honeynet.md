@@ -27,7 +27,7 @@ tags:
 ![Architecture Diagram](./assets/images/soc-honeynet/topology-diagram-2.png)
 
 !!! note
-  This is a not a complete walk-though of the process but it is a more detailed different iteration of the Github repo. Some of the resources have already been created so, some steps will be skipped. 
+    This is a not a complete walk-though of the process but it is a more detailed different iteration of the Github repo. Some of the resources have already been created so, some steps will be skipped. 
 
 ## Overview
 
