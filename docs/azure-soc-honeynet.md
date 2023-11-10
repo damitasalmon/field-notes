@@ -178,11 +178,14 @@ Create another Windows VM in a different resource group, region, and virtual net
 
 ![Attack VM Overview](assets/images/soc-honeynet/attack-vm-overview.png)
 
-<!--
 
 ## Stage II - Building the SOC
 
 ### Log Analytics and Microsoft Sentinel (SIEM) Setup + Data Ingestion
+
+Create Log Analytics Workspace and add Microsoft Sentinel to the workspace.
+
+<!--
 #### Enable Microsoft Defender for Cloud 
 #### Configure Log Collection for Virtual Machines
 ##### Tenant Level Logging
