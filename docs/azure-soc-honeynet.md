@@ -3,7 +3,7 @@ title: "Azure SOC Honeynet"
 tags: 
 - azure
 - lab
-- soc
+- SOC
 - honeynet
 - sentinel
 - log-analytics
@@ -11,17 +11,14 @@ tags:
 - NIST-SP-800-53-r4
 - PowerShell
 - KQL
+- azure-bastion
+- rdp
+- virtualization
 ---
 
-<!-- 
-<figure markdown>
-  ![Resource Groups](./assets/images/azure-virtual/2023-06-14_1686774746-resource-group.png){ width="600" }
-  <figcaption class="response" class="response">The created department resource groups.</figcaption class="response">
-</figure> 
--->
 
-!!! warning
-    This page is a work in progress. 
+!!! note
+    This page is a work in progress and the documentation for this lab is obnoxiously long. Click on images to expand. 
 
 # Building a SOC & (mini) Honeynet in Azure (w/Live Traffic)
 ![Architecture Diagram](./assets/images/soc-honeynet/topology-diagram-2.png)
@@ -169,7 +166,7 @@ Pinging windows-vm again to test success
 
 ![Ping win-vm after firewall change](assets/images/soc-honeynet/ping-win-vm-after-firewall-change.png)
 
-Also checking out the linx-vm using PuTTy
+Connecting to the linux-vm via SSH using PuTTy
 
 ![Connect to linux-vm using PuTTy](assets/images/soc-honeynet/ssh-putty-linux.png)
 
@@ -256,7 +253,7 @@ Check Event Viewer to make sure the logs are properly enabled and porting to Eve
 ![Check Event Viewer for Failed Auth Log](assets/images/soc-honeynet/test-sql-login-bad-pw.png)
 
 
-It was at this time I learned a valuable lesson about Azure Bastion. I was under the impression that the cost was per-use - what I had not realized is that once you deploy Azure Bastion it is perpetually in a running-state. I thought that once the VM was deallocated/stopped, so was the Bastion. This is not the case. To the best of my knowledge the only way to stop Bastion is to delete it. Luckily, I check cost management semi-neurotically so I caught this before I had so sell any organs. 
+It was at this time I learned a valuable lesson about **Azure Bastion**. What I had not realized is that once you deploy the bastion instance it is perpetually in a running-state. I was under the impression that once the VM was deallocated/stopped, so was the Bastion. This is not the case. To the best of my knowledge the only way to stop Bastion is to delete it. Luckily, I check cost management semi-neurotically so I caught this before I had so sell any organs. 
 
 I also realized that I could use the Microsoft Remote Desktop on iOS (on iPad) the same way you can with macOS. I was trilled. 
 
@@ -271,7 +268,37 @@ Create another Windows VM in a different resource group, region, and virtual net
 
 ### Log Analytics and Microsoft Sentinel (SIEM) Setup + Data Ingestion
 
-Create Log Analytics Workspace and add Microsoft Sentinel to the workspace.
+Create Log Analytics Workspace.
+
+![Create LAW](assets/images/soc-honeynet/create-LAW.png)
+
+Add Sentinel to the workspace. 
+
+![Add Sentinel](assets/images/soc-honeynet/add-sentinel-to-a-workspace.png)
+
+![Sentinel & LAW Connected](assets/images/soc-honeynet/Microsoft-Sentinel-Microsoft-Azure.png)
+
+#### Create Sentinel Watchlist 
+
+In Sentinel, a new watchlist for Geo IP Data. This watchlist will help us correlate security events to geographic locations later in the lab. 
+
+![Create GeoIP sentinel Watchlist](assets/images/soc-honeynet/create-sentinel-watchlist-01.png)
+
+Upload the geoIP data and set the search key. 
+
+![Watchlist Wizard](assets/images/soc-honeynet/Watchlist-wizard-Microsoft-Azure.png)
+
+Once the watchlist begins uploading, sentinel will start ingesting the data and it will be available for query, even before ingestion completes. 
+
+![Checking Watchlist ingestion](<assets/images/soc-honeynet/Microsoft-Sentinel-Microsoft-Azure-checking upload.png>)
+
+Querying GeoIP data using KQL
+
+![Query GeoIP Watchlist](assets/images/soc-honeynet/LAW-Cyber-Lab-Microsoft-Azure-testquery-2.png)
+
+Upload complete
+
+![GeoIP Ingestion Complete](assets/images/soc-honeynet/Microsoft-Sentinel-Microsoft-Azure-Watchlist-Ingestion-Complete.png)
 
 <!--
 #### Enable Microsoft Defender for Cloud 
