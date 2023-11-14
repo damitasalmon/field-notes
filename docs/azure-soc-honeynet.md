@@ -151,35 +151,41 @@ At this point both NSGs are identical.
 
 #### Disable Windows Firewall
 
-The goal is to expose these VMs to threat actors and to make them both discoverable and reachable so that we can monitor,log and investigate incidents later. By default Windows Firewall, blocks ICMP packets from the internet. You can see that from another network the windows-vm is unreachable. 
+The goal is to expose these VMs to threat actors and to make them both discoverable and reachable so that we can monitor, log and investigate incidents later. By default Windows Firewall, blocks ICMP packets from the internet. You can see that from another network the windows-vm is unreachable. 
 
 ![Ping Windows VM with Firewall ON](assets/images/soc-honeynet/ping-win-vm-before-firewall-change.png)
 
-<!--
+From here, disable the firewall (wf.msc). 
+
+**Before**
+
+![Windows Firewall Before](assets/images/soc-honeynet/windows-vm-firewall-before.png)
+
+
+**After**
+![Windows Firewall After](assets/images/soc-honeynet/windows-vm-firewall-after-disable.png)
+
+
 #### Install MS SQL Server + Utilities
 
-Install SQL Server Evaluation and create a default user, then install SSMS (SQL Server Management Studio).
+Next, install SQL Server Evaluation and create a default user, then install SSMS (SQL Server Management Studio).
 
 Enable logging for SQL Server. 
 
 Test SQL logging to make sure it’s working properly
 
+<!-- 
 Test ping linux-vm
 
 Log into linux-vm via SSH
 
-#### Enable SQL Server Logging
 
 
-
-Ping linux-vm
-
-Login to linux-vm
 
  -->
 
 !!! info 
-    It was at this time I learned a valuable lesson about Azure Bastion. I had reviewed the costs and was under the impression that the cost was per-use - which it is. What I had not realized is that once you deploy Azure Bastion it is perpetually in a running-state, which continues regardless of whether the VM is running or not. I thought that once the VM was deallocated/stopped, so was the Bastion. This is not the case. To the best of my knowledge the only way to stop Bastion is to delete it. Luckily, I check cost management semi-neurotically so I caught this before I had so sell any organs to cover the cost. 
+    It was at this time I learned a valuable lesson about Azure Bastion. I was under the impression that the cost was per-use - what I had not realized is that once you deploy Azure Bastion it is perpetually in a running-state. I thought that once the VM was deallocated/stopped, so was the Bastion. This is not the case. To the best of my knowledge the only way to stop Bastion is to delete it. Luckily, I check cost management semi-neurotically so I caught this before I had so sell any organs. 
  
 #### Create Attack (Threat) VM
 
