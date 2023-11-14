@@ -168,7 +168,7 @@ From here, disable the firewall (wf.msc).
 
 #### Install MS SQL Server + Utilities
 
-Next, download and install SQL Server Evaluation. Select Download Media. 
+Next, download and install [SQL Server Evaluation](ttps://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019). Select Download Media. 
 
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server.png)
 
@@ -196,7 +196,7 @@ Select Mixed Mode, create a user and select add current user to also allow for W
 
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-8.png)
 
-Once the installation completes, download and install MS SQL Management Studio (SMSS).
+Once the installation completes, download and install [MS SQL Management Studio (SMSS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms).
 
 ![Install SMSS](assets/images/soc-honeynet/install-ms-sql-ssms-2.jpg)
 
@@ -207,7 +207,7 @@ Once the installation completes, restart the VM.
 
 ##### Enable Logging on SQL Server
 
-After restarting, 
+After restarting, follow the [Microsoft documentation[(https://learn.microsoft.com/en-us/sql/relational-databases/security/auditing/write-sql-server-audit-events-to-the-security-log?view=sql-server-ver16) for adjusting settings to allow SQL Server logs to be ported to Windows Event Viewer. 
 
 Test SQL logging to make sure it’s working properly
 
