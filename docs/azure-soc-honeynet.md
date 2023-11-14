@@ -165,12 +165,16 @@ Test ping linux-vm
 
 Log into linux-vm via SSH
 
+#### Enable SQL Server Logging
+
+
 
 Ping linux-vm
 
 Login to linux-vm
 
-
+!!! info 
+    It was at this time I learned a valuable lesson about Azure Bastion. I had reviewed the costs and was under the impression that the cost was per-use - which it is. What I had not realized is that once you deploy Azure Bastion it is in a running-state, which continues regardless of whether the VM is running or not. I thought that once the VM was deallocated/stopped, so was the Bastion. This is not the case. To the best of my knowledge the only way to stop Bastion is to delete it. Luckily, I check cost management semi-neurotically so I caught this before I had so sell my first child to Microsoft. 
   -->
 #### Create Attack (Threat) VM
 
