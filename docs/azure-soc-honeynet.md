@@ -165,6 +165,14 @@ From here, disable the firewall (wf.msc).
 **After**
 ![Windows Firewall After](assets/images/soc-honeynet/windows-vm-firewall-after-disable.png)
 
+Pinging windows-vm again to test success
+
+![Ping win-vm after firewall change](assets/images/soc-honeynet/ping-win-vm-after-firewall-change.png)
+
+Pinging linux-vm 
+
+![Ping linux-vm](assets/images/soc-honeynet/test-ping-linux-vm.png)
+
 
 #### Install MS SQL Server + Utilities
 
@@ -173,12 +181,15 @@ Next, download and install [SQL Server Evaluation](ttps://www.microsoft.com/en-u
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server.png)
 
 Select ISO and download location.
+
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-2.png)
 
 Once the download completes, go to download location.
+
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-3.png)
 
 Mount the ISO.
+
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-4.png)
 
 Run the installer.
@@ -209,7 +220,20 @@ Once the installation completes, restart the VM.
 
 After restarting, follow the [Microsoft documentation[(https://learn.microsoft.com/en-us/sql/relational-databases/security/auditing/write-sql-server-audit-events-to-the-security-log?view=sql-server-ver16) for adjusting settings to allow SQL Server logs to be ported to Windows Event Viewer. 
 
-Test SQL logging to make sure it’s working properly
+Provide full permission for the SQL Server service account (NETWORK SERVICE) to the registry hive. 
+
+
+Configure the audit object access setting in Windows using auditpol by executing the provided command line statement. 
+
+Launch SSMS and log in to the SQL Server. Then go to Properties > Security > Enable both
+
+Restart the SQL Server and try to generate some failed authentication logs by trying log into the SQL server with the wrong password. 
+
+Check Event Viewer to make sure the logs are properly enabled and porting to Event Viewer successfully. 
+
+
+
+
 
 <!-- 
 Test ping linux-vm
