@@ -168,18 +168,46 @@ From here, disable the firewall (wf.msc).
 
 #### Install MS SQL Server + Utilities
 
-Next, download and install SQL Server Evaluation, create a default user, then install SSMS (SQL Server Management Studio).
+Next, download and install SQL Server Evaluation. Select Download Media. 
 
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server.png)
+
+Select ISO and download location.
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-2.png)
+
+Once the download completes, go to download location.
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-3.png)
+
+Mount the ISO.
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-4.png)
+
+Run the installer.
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-5.png)
-![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-6.png)
+
+Select New SQL Server
+
+![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-6.jpg)
+
+Include Database Engine Service
+
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-7.png)
+
+Select Mixed Mode, create a user and select add current user to also allow for Windows authentication using labuser. 
+
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-8.png)
 
-Enable logging for SQL Server. 
+Once the installation completes, download and install MS SQL Management Studio (SMSS).
+
+![Install SMSS](assets/images/soc-honeynet/install-ms-sql-ssms-2.jpg)
+
+![Install SMSS](assets/images/soc-honeynet/install-ms-sql-ssms-3.jpg)
+
+Once the installation completes, restart the VM. 
+
+
+##### Enable Logging on SQL Server
+
+After restarting, 
 
 Test SQL logging to make sure it’s working properly
 
