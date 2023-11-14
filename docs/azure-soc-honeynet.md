@@ -168,7 +168,16 @@ From here, disable the firewall (wf.msc).
 
 #### Install MS SQL Server + Utilities
 
-Next, install SQL Server Evaluation and create a default user, then install SSMS (SQL Server Management Studio).
+Next, download and install SQL Server Evaluation, create a default user, then install SSMS (SQL Server Management Studio).
+
+![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server.png)
+![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-2.png)
+![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-3.png)
+![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-4.png)
+![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-5.png)
+![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-6.png)
+![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-7.png)
+![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server-8.png)
 
 Enable logging for SQL Server. 
 
