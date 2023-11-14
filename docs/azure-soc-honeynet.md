@@ -169,14 +169,22 @@ Pinging windows-vm again to test success
 
 ![Ping win-vm after firewall change](assets/images/soc-honeynet/ping-win-vm-after-firewall-change.png)
 
-Pinging linux-vm 
+Also checking out the linx-vm using PuTTy
+
+![Connect to linux-vm using PuTTy](assets/images/soc-honeynet/ssh-putty-linux.png)
+
+![Connected to linux-vm](assets/images/soc-honeynet/ssh-into-linux-success.png)
+
+Test pinging linux-vm externally 
 
 ![Ping linux-vm](assets/images/soc-honeynet/test-ping-linux-vm.png)
 
 
 #### Install MS SQL Server + Utilities
 
-Next, download and install [SQL Server Evaluation](ttps://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019). Select Download Media. 
+Next, download and install [SQL Server Evaluation](ttps://www.microsoft.com/en-us/evalcenter/evaluate-sql-server-2019). 
+
+Select Download Media. 
 
 ![Install MS SQL Server](assets/images/soc-honeynet/install-ms-sql-server.png)
 
@@ -218,36 +226,40 @@ Once the installation completes, restart the VM.
 
 ##### Enable Logging on SQL Server
 
-After restarting, follow the [Microsoft documentation[(https://learn.microsoft.com/en-us/sql/relational-databases/security/auditing/write-sql-server-audit-events-to-the-security-log?view=sql-server-ver16) for adjusting settings to allow SQL Server logs to be ported to Windows Event Viewer. 
+After restarting, follow the [Microsoft documentation](https://learn.microsoft.com/en-us/sql/relational-databases/security/auditing/write-sql-server-audit-events-to-the-security-log?view=sql-server-ver16) for adjusting settings to allow SQL Server logs to be ported to Windows Event Viewer. 
 
 Provide full permission for the SQL Server service account (NETWORK SERVICE) to the registry hive. 
 
+![Edit Registry Key](assets/images/soc-honeynet/windows-vm-edit-registry-key.png)
+
+![Grant MS SQL Server Full Control](assets/images/soc-honeynet/windows-vm-edit-registry-network-fullctrl.png)
 
 Configure the audit object access setting in Windows using auditpol by executing the provided command line statement. 
 
+![Execute auditpol statement in cmd](assets/images/soc-honeynet/audit-cmd-command.png)
+
 Launch SSMS and log in to the SQL Server. Then go to Properties > Security > Enable both
+
+**Security Settings Before**
+
+![SQL Server Security Settings Before](assets/images/soc-honeynet/enable-sql-logging-before.png)
+
+**Security Settings After**
+![SQL Server Security Settings After](assets/images/soc-honeynet/enable-sql-logging-after.png)
 
 Restart the SQL Server and try to generate some failed authentication logs by trying log into the SQL server with the wrong password. 
 
+![Restart SQL Server](assets/images/soc-honeynet/restart-sql-server.png)
+
 Check Event Viewer to make sure the logs are properly enabled and porting to Event Viewer successfully. 
 
+![Check Event Viewer for Failed Auth Log](assets/images/soc-honeynet/test-sql-login-bad-pw.png)
 
 
+It was at this time I learned a valuable lesson about Azure Bastion. I was under the impression that the cost was per-use - what I had not realized is that once you deploy Azure Bastion it is perpetually in a running-state. I thought that once the VM was deallocated/stopped, so was the Bastion. This is not the case. To the best of my knowledge the only way to stop Bastion is to delete it. Luckily, I check cost management semi-neurotically so I caught this before I had so sell any organs. 
 
+I also realized that I could use the Microsoft Remote Desktop on iOS (on iPad) the same way you can with macOS. I was trilled. 
 
-<!-- 
-Test ping linux-vm
-
-Log into linux-vm via SSH
-
-
-
-
- -->
-
-!!! info 
-    It was at this time I learned a valuable lesson about Azure Bastion. I was under the impression that the cost was per-use - what I had not realized is that once you deploy Azure Bastion it is perpetually in a running-state. I thought that once the VM was deallocated/stopped, so was the Bastion. This is not the case. To the best of my knowledge the only way to stop Bastion is to delete it. Luckily, I check cost management semi-neurotically so I caught this before I had so sell any organs. 
- 
 #### Create Attack (Threat) VM
 
 Create another Windows VM in a different resource group, region, and virtual network. All other settings can be the same or similar. 
