@@ -47,7 +47,6 @@ The architecture of the mini honeynet in Azure consists of the following tools a
 - Microsoft SQL Server
 - SQL Server Management Studio (SSMS)
 - Azure Active Directory
-- PowerShell
 
 Additionally, the SOC utilized the following tools, components and regulations: 
 
@@ -58,6 +57,7 @@ Additionally, the SOC utilized the following tools, components and regulations:
 - Log Analytics Workspace
 - Windows Event Viewer
 - Kusto Query Language (KQL)
+- PowerShell
 
 To collect the metrics for the insecure environment, all resources were originally deployed, exposed to the  public internet. The Virtual Machines had their Network Security Groups open (allowing all traffic) and built-in firewalls disabled. All other resources were deployed with endpoints visible to the public Internet.
 
@@ -265,6 +265,8 @@ Create another Windows VM in a different resource group, region, and virtual net
 
 To make sure everything is working as expected, log into the attack-vm to generate failed authentication logs on both vms.
 
+![generating logs overview](assets/images/soc-honeynet/logging-overview.png)
+
 Generating failed RDP logs on windows-vm: 
 
 ![generate failed login w/rdp](assets/images/soc-honeynet/generate-failed-login-rdp.jpg)
@@ -293,14 +295,16 @@ Investigating the logs at /var/log/auth.log for failed authentication
 
 ![the logs in auth.log file](assets/images/soc-honeynet/check-linux-logs_003.jpg)
 
-**Checking Event Viewer on windows-vm: **
+**Checking Event Viewer on windows-vm:**
 
 In Windows Event Viewer, there are normally a lot of logs, in the screenshots below the logs are filtered by the specific events we're looking for. 
 
 Windows Logs > Security, filtered by Event ID: [4625](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625)
+
 ![failed login logs in windows event viewer](assets/images/soc-honeynet/failed-login-rdp-eventviewer.jpg)
 
 Windows Logs > Application, filtered by Event ID: [18456](https://learn.microsoft.com/en-us/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-ver16)
+
 ![failed sql login logs in windows event viewer](assets/images/soc-honeynet/failed-login-sql-eventviewer.jpg)
 
 
