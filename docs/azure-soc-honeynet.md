@@ -397,12 +397,20 @@ Create a Storage Account for Azure to place NSG flow logs later.
 !!! note
     Storage Account name must be globally unique. 
 
+![Create a storage account](assets/images/soc-honeynet/create-a-storage-account.png)
 
-Enable NSG flow logs for target VMs. Go to Network Security Groups, pick one (any but preferably one attached to a target VM) > Under Monitoring, click NSG flow logs > Create flow log
+The important part is cut off here, but make sure the storage account is in the same region as the threat VMs. 
+
+![create a storage account wizard](assets/images/soc-honeynet/Create-a-storage-account-2.png)
+
+Enable NSG flow logs for target VMs. 
+Go to Network Security Groups, pick one (any but preferably one attached to a target VM) > Under Monitoring, click NSG flow logs > Create flow log
 
 ![Create NSG Flow Logs](assets/images/soc-honeynet/windows-vm-nsg-Microsoft-Azure.png) 
 
 Click +Resource > Select the target VM's > Confirm Selection
+
+![Create a flow log wizard](assets/images/soc-honeynet/Create-a-flow-log-Microsoft-Azure-2.png)
 
 ![Select NSG](assets/images/soc-honeynet/Select-network-security-group-Microsoft-Azure-3.png)
 
