@@ -20,8 +20,8 @@ tags:
 ![Architecture Diagram](./assets/images/soc-honeynet/topology-diagram-2.png)
 
 !!! note
-    This is a not a necessarily complete walk-though but it is a more detailed iteration of the Github repo. This page is a work in progress and the documentation for this lab is obnoxiously long. Click on images to expand. 
-
+    This is a not a necessarily complete walk-though but it is a more detailed iteration of the Github/Gitlab repo. This page is a work in progress and the documentation for this lab is obnoxiously long. **Click on images to expand. 
+**
 ## Overview
 
 In this project, I built a small-scale honeynet and SOC in Azure. Log Analytics was used to ingest logs from various sources that Microsoft Sentinel would leverage to build attack maps, trigger alerts, and create incidents. Microsoft Defender for Cloud was used as a data source for LAW and to assess the VM configuration relative to regulatory frameworks/security controls. I configured log collection on the insecure environment, set security metrics then observed the environment for 24 hours. After investigating the incidents that Microsoft Sentinel generated during that period, security controls were applied to address the incidents and harden the environment based on recommendations from Microsoft Defender. After a second 24-hour observation new metrics were collected on the environment post-remediation. 
@@ -348,53 +348,72 @@ Upload complete.
 
 Open MDC: 
 
-![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_001.jpg) 
+![Enable MDC](assets/images/soc-honeynet/enable-mdc_001.jpg) 
 
 Go to Environment Settings > Drill down to the LAW > click the three dots corresponding to LAW > Edit Settings 
 
-![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_003.jpg) 
+![Enable MDC](assets/images/soc-honeynet/enable-mdc_003.jpg) 
 
 Enable Data Collection
 Click Data Collection (in sidebar) > All Events > Save
 
-![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_004.jpg) 
+![Enable MDC](assets/images/soc-honeynet/enable-mdc_004.jpg) 
 
 Back in MDC, go to Environment Settings > click the three dots corresponding to the Subscription > Edit Settings 
 
-![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_005.jpg) 
+![Enable MDC](assets/images/soc-honeynet/enable-mdc_005.jpg) 
 
 Under Defender Plans, toggle **ON**: Servers, Databases, Storage and Key Vault
 
-![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_006.jpg) 
+![Enable MDC](assets/images/soc-honeynet/enable-mdc_006.jpg) 
 
 Next to Databases > Select Types > make sure 'SQL servers on Machines' is toggled **ON**, all else toggled **OFF** > Continue
 
-![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_007.jpg) 
+![Enable MDC](assets/images/soc-honeynet/enable-mdc_007.jpg) 
 
 Next to Servers > Under Monitoring Coverage,  click Settings > make sure everything is toggled **ON**
 
-![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_008.jpg) 
+![Enable MDC](assets/images/soc-honeynet/enable-mdc_008.jpg) 
 
-Next to Log Analytics Agent > under Configuration > Edit Configuration. Change the workspace selection to Custom and select the LAW created and configured earlier > Apply > Continue > Save
+Next to Log Analytics Agent > under Configuration > Edit Configuration. 
+Change the workspace selection to Custom and select the LAW created and configured earlier > Apply > Continue > Save
 
-![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_009.jpg)
+![Enable MDC](assets/images/soc-honeynet/enable-mdc_009.jpg)
 
 !!! note
     If you accidentally saved before configuring the LAW agent: Go back and change to custom, then go through your resources and delete resources that were automatically provisioned in the processes. To avoid future mixups, make sure there is only ONE LAW. 
 
-Click Continuous Export in the sidebar > Select Log Analytics Workspace at the top> toggle **ON** 
-Select everything (will fine tune later).
-Make sure export Export Configuration points to the resource group where the LAW is stored and Export target points to the appropriate subscription and LAW.  
-Click Save. 
+Click Continuous Export in the sidebar > Select Log Analytics Workspace at the top > toggle **ON** 
+Select everything (will fine tune later). </br>
+Make sure export Export Configuration points to the resource group where the LAW is stored and Export target points to the appropriate subscription and LAW. Click Save. 
 
 ![Enable Continuous export to LAW](assets/images/soc-honeynet/Settings-ContinousExport-MDC.png)
 
-<!--
+
 #### Configure Log Collection for Virtual Machines
+
+Create a Storage Account for Azure to place NSG flow logs later. 
+
+!!! note
+    Storage Account name must be globally unique. 
+
+
+Enable NSG flow logs for target VMs. Go to Network Security Groups, pick one (any but preferably one attached to a target VM) > Under Monitoring, click NSG flow logs > Create flow log
+
+![Create NSG Flow Logs](assets/images/soc-honeynet/windows-vm-nsg-Microsoft-Azure.png) 
+
+Click +Resource > Select the target VM's > Confirm Selection
+
+![Select NSG](assets/images/soc-honeynet/Select-network-security-group-Microsoft-Azure-3.png)
+
+Create a Data Collection rule for target VMs. 
+
+
 ##### Tenant Level Logging
 ##### Subscription Level Logging
 ##### Resource Level Logging
 
+<!--
 ### Configure Microsoft Sentinel
 #### World Attack Maps Construction
 #### Analytics, Alerting and Incident Generation
