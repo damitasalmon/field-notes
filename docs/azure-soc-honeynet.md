@@ -231,7 +231,7 @@ Provide full permission for the SQL Server service account (NETWORK SERVICE) to 
 
 Configure the audit object access setting in Windows using auditpol by executing the provided command line statement. 
 
-![Execute auditpol statement in cmd](assets/images/soc-honeynet/audit-cmd-command.png)
+![Execute auditpol statement in cmd](assets/images/soc-honeynet/enable-sql-logging-cmd.jpg)
 
 Launch SSMS and log in to the SQL Server. Then go to Properties > Security > Enable both
 
