@@ -346,25 +346,47 @@ Upload complete.
 
 #### Enable Microsoft Defender for Cloud 
 
+Open MDC: 
+
 ![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_001.jpg) 
 
-![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_002.jpg) 
+Go to Environment Settings > Drill down to the LAW > click the three dots corresponding to LAW > Edit Settings 
 
 ![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_003.jpg) 
 
+Enable Data Collection
+Click Data Collection (in sidebar) > All Events > Save
+
 ![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_004.jpg) 
+
+Back in MDC, go to Environment Settings > click the three dots corresponding to the Subscription > Edit Settings 
 
 ![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_005.jpg) 
 
+Under Defender Plans, toggle **ON**: Servers, Databases, Storage and Key Vault
+
 ![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_006.jpg) 
+
+Next to Databases > Select Types > make sure 'SQL servers on Machines' is toggled **ON**, all else toggled **OFF** > Continue
 
 ![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_007.jpg) 
 
+Next to Servers > Under Monitoring Coverage,  click Settings > make sure everything is toggled **ON**
+
 ![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_008.jpg) 
+
+Next to Log Analytics Agent > under Configuration > Edit Configuration. Change the workspace selection to Custom and select the LAW created and configured earlier > Apply > Continue > Save
 
 ![Enable MDC](assets/images/soc-honeynet/enable-mdc_2023-11-15_009.jpg)
 
-Enable continuous export to the Log Analytics Workspace:
+!!! note
+    If you accidentally saved before configuring the LAW agent: Go back and change to custom, then go through your resources and delete resources that were automatically provisioned in the processes. To avoid future mixups, make sure there is only ONE LAW. 
+
+Click Continuous Export in the sidebar > Select Log Analytics Workspace at the top> toggle **ON** 
+Select everything (will fine tune later).
+Make sure export Export Configuration points to the resource group where the LAW is stored and Export target points to the appropriate subscription and LAW.  
+Click Save. 
+
 ![Enable Continuous export to LAW](assets/images/soc-honeynet/Settings-ContinousExport-MDC.png)
 
 <!--
