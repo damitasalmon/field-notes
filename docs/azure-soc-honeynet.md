@@ -20,11 +20,13 @@ tags:
 ![Architecture Diagram](./assets/images/soc-honeynet/topology-diagram-2.png)
 
 !!! note
-    This is a not a necessarily complete walk-though but it is a more detailed different iteration of the Github repo. This page is a work in progress and the documentation for this lab is obnoxiously long. Click on images to expand. 
+    This is a not a necessarily complete walk-though but it is a more detailed iteration of the Github repo. This page is a work in progress and the documentation for this lab is obnoxiously long. Click on images to expand. 
 
 ## Overview
 
-In this project, I built a small-scale honeynet in Azure. It uses Log Analytics to ingest logs from various sources that Microsoft Sentinel would leverage to build attack maps, trigger alerts, and create incidents. I configured log collection on the insecure environment, set security metrics then observed the environment for 24 hours. After investigating the incidents that Microsoft Sentinel generated during that period, security controls were applied to address the incidents and harden the environment. A second 24-hour observation was conducted to collect new data on the security metrics post-remediation. The collected metrics were:
+In this project, I built a small-scale honeynet and SOC in Azure. Log Analytics was used to ingest logs from various sources that Microsoft Sentinel would leverage to build attack maps, trigger alerts, and create incidents. Microsoft Defender for Cloud was used to monitor and assess the VM configuration relative to regulatory frameworks/security controls. I configured log collection on the insecure environment, set security metrics then observed the environment for 24 hours. After investigating the incidents that Microsoft Sentinel generated during that period, security controls were applied to address the incidents and harden the environment based on recommendations from Microsoft Defender. After a second 24-hour observation new metrics were collected on the environment post-remediation. 
+
+Collected metrics: 
 
 - SecurityEvent (Windows Event Logs)
 - Syslog (Linux Event Logs)
