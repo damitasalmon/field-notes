@@ -16,15 +16,11 @@ tags:
 - virtualization
 ---
 
-
-!!! note
-    This page is a work in progress and the documentation for this lab is obnoxiously long. Click on images to expand. 
-
-# Building a SOC & (mini) Honeynet in Azure (w/Live Traffic)
+# Building a (mini) SOC & Honeynet in Azure (w/Live Traffic)
 ![Architecture Diagram](./assets/images/soc-honeynet/topology-diagram-2.png)
 
 !!! note
-    This is a not a complete walk-though of the process but it is a more detailed different iteration of the Github repo. Some of the resources have already been created so, some steps will be skipped. 
+    This is a not a necessarily complete walk-though but it is a more detailed different iteration of the Github repo. This page is a work in progress and the documentation for this lab is obnoxiously long. Click on images to expand. 
 
 ## Overview
 
@@ -263,6 +259,48 @@ Create another Windows VM in a different resource group, region, and virtual net
 
 ![Attack VM Overview](assets/images/soc-honeynet/attack-vm-overview.png)
 
+#### Generate Logs 
+
+To make sure everything is working as expected, log into the attack-vm to generate failed authentication logs on both vms.
+
+Generating failed RDP logs on windows-vm: 
+
+![generate failed login w/rdp](assets/images/soc-honeynet/generate-failed-login-rdp.jpg)
+
+Using PowerShell to generate failed login logs on linux-vm:
+
+![generate failed login with ssh on powershell](assets/images/soc-honeynet/generate-failed-login-linux.jpg)
+
+Installing SMSS on attack-vm: 
+
+![install smss on attack-vm](assets/images/soc-honeynet/install-smss-attack-vm.jpg)
+
+Generating  failed login logs for MS SQL Server on windows-vm:
+
+![generate failed sql server login](assets/images/soc-honeynet/generate-failed-login-sql_001.jpg) 
+
+![generate failed sql server login](assets/images/soc-honeynet/generate-failed-login-sql.jpg)
+
+##### Check Logs
+
+Using PowerShell to SSH into linux-vm: 
+
+![ssh into linux-vm with PS](assets/images/soc-honeynet/check-linux-logs_001.jpg)
+
+Investigating the logs at /var/log/auth.log for failed authentication
+
+![the logs in auth.log file](assets/images/soc-honeynet/check-linux-logs_003.jpg)
+
+**Checking Event Viewer on windows-vm: **
+
+In Windows Event Viewer, there are normally a lot of logs, in the screenshots below the logs are filtered by the specific events we're looking for. 
+
+Windows Logs > Security, filtered by Event ID: [4625](https://learn.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625)
+![failed login logs in windows event viewer](assets/images/soc-honeynet/failed-login-rdp-eventviewer.jpg)
+
+Windows Logs > Application, filtered by Event ID: [18456](https://learn.microsoft.com/en-us/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-ver16)
+![failed sql login logs in windows event viewer](assets/images/soc-honeynet/failed-login-sql-eventviewer.jpg)
+
 
 ## Stage II - Building the SOC
 
@@ -292,16 +330,20 @@ Once the watchlist begins uploading, sentinel will start ingesting the data and 
 
 ![Checking Watchlist ingestion](<assets/images/soc-honeynet/Microsoft-Sentinel-Microsoft-Azure-checking upload.png>)
 
-Querying GeoIP data using KQL
+Querying GeoIP data using KQL.
 
 ![Query GeoIP Watchlist](assets/images/soc-honeynet/LAW-Cyber-Lab-Microsoft-Azure-testquery-2.png)
 
-Upload complete
+Upload complete.
 
 ![GeoIP Ingestion Complete](assets/images/soc-honeynet/Microsoft-Sentinel-Microsoft-Azure-Watchlist-Ingestion-Complete.png)
 
-<!--
+
 #### Enable Microsoft Defender for Cloud 
+
+
+
+<!--
 #### Configure Log Collection for Virtual Machines
 ##### Tenant Level Logging
 ##### Subscription Level Logging
@@ -408,7 +450,7 @@ The following table shows the measurements taken after applying the security con
 
 ## Conclusion
 
-In this project, a mini honeynet was constructed in Microsoft Azure utilizing Log Analytics with Microsoft Sentinel. Sentinel used logs ingested by a Log Analytics workspace to trigger alerts and create incidents. Next, logging was enabled and data collected on the insecure environment based on established security metrics, before applying security controls. The logs and data were reassessed after implementing security measures. As a result, the number of security events and incidents were drastically reduced after the security controls were applied. 
+In this project, a mini SOC honeynet was constructed in Microsoft Azure utilizing Log Analytics with Microsoft Sentinel. Sentinel used logs ingested by a Log Analytics workspace to trigger alerts and create incidents. Next, logging was enabled and data collected on the insecure environment based on established security metrics, before applying security controls. The logs and data were reassessed after implementing security measures. As a result, the number of security events and incidents were drastically reduced after the security controls were applied. 
 
 It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
 
