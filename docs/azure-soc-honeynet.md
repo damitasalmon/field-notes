@@ -21,7 +21,7 @@ tags:
 
 !!! note
     This is a not a necessarily complete walk-though but it is a more detailed iteration of the Github/Gitlab repo. This page is a work in progress and the documentation for this lab is obnoxiously long. **Click on images to expand.**
-    
+
 ## Overview
 
 In this project, I built a small-scale honeynet and SOC in Azure. Log Analytics was used to ingest logs from various sources that Microsoft Sentinel would leverage to build attack maps, trigger alerts, and create incidents. Microsoft Defender for Cloud was used as a data source for LAW and to assess the VM configuration relative to regulatory frameworks/security controls. I configured log collection on the insecure environment, set security metrics then observed the environment for 24 hours. After investigating the incidents that Microsoft Sentinel generated during that period, security controls were applied to address the incidents and harden the environment based on recommendations from Microsoft Defender. After a second 24-hour observation new metrics were collected on the environment post-remediation. 
@@ -399,7 +399,7 @@ Create a Storage Account for Azure to place NSG flow logs later.
 
 ![Create a storage account](assets/images/soc-honeynet/create-a-storage-account.png)
 
-The important part is cut off here, but make sure the storage account is in the same region as the threat VMs. 
+The important part is cut off here, but make sure the storage account is in the **same region** as the target VMs.
 
 ![create a storage account wizard](assets/images/soc-honeynet/Create-a-storage-account-2.png)
 
