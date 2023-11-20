@@ -384,7 +384,8 @@ Change the workspace selection to Custom and select the LAW created and configur
     If you accidentally saved before configuring the LAW agent: Go back and change to custom, then go through your resources and delete resources that were automatically provisioned in the processes. To avoid future mixups, make sure there is only ONE LAW. 
 
 Click Continuous Export in the sidebar > Select Log Analytics Workspace at the top > toggle **ON** 
-Select everything (will fine tune later). </br>
+Select everything (will fine tune later). 
+
 Make sure export Export Configuration points to the resource group where the LAW is stored and Export target points to the appropriate subscription and LAW. Click Save. 
 
 ![Enable Continuous export to LAW](assets/images/soc-honeynet/Settings-ContinousExport-MDC.png)
@@ -403,7 +404,8 @@ The important part is cut off here, but make sure the storage account is in the 
 
 ![create a storage account wizard](assets/images/soc-honeynet/Create-a-storage-account-2.png)
 
-Enable NSG flow logs for target VMs. 
+##### Enable NSG flow logs for target VMs
+
 Go to Network Security Groups, pick one (any but preferably one attached to a target VM) > Under Monitoring, click NSG flow logs > Create flow log
 
 ![Create NSG Flow Logs](assets/images/soc-honeynet/windows-vm-nsg-Microsoft-Azure.png) 
@@ -414,14 +416,75 @@ Click +Resource > Select the target VM's > Confirm Selection
 
 ![Select NSG](assets/images/soc-honeynet/Select-network-security-group-Microsoft-Azure-3.png)
 
-Create a Data Collection rule for target VMs. 
+##### Create a Data Collection Rule for target VMs
 
+
+First make sure target VMs are running. The Microsoft Defender or will automatically install the agent to the VMs once they are running, if not, you can manually install later. 
+
+Next, go to LAW > Agents > Data Collection Rules > Create Data Collection Rule 
+
+![Data Collection Rule page in LAW](assets/images/soc-honeynet/add-data-collection-001.jpg)
+
+![Create DCR](assets/images/soc-honeynet/add-data-collection-002.jpg)
+
+![Create DCR wizard](assets/images/soc-honeynet/add-data-collection-003.jpg)
+
+Click + Add Resources, and select target VMs > Apply.
+
+![Select resources for DCR](assets/images/soc-honeynet/add-data-collection-004.jpg)
+
+![Select target VMs](assets/images/soc-honeynet/add-data-collection-005.jpg)
+
+![DCR Resources](assets/images/soc-honeynet/add-data-collection-006.jpg)
+
+Click 'Next: Collect and deliver >' + Data Source and add select Linux Syslog from the dropdown for Data Source Type. Then only collect logs for LOG_AUTH (set all other logs to 'none' value) > Next: Destination
+
+![Add Linux Syslog Data Source](assets/images/soc-honeynet/add-data-collection-007.jpg)
+
+Set the destination to the Log Analytics Workspace > Add data source
+
+![Set dest for DCR to LAW](assets/images/soc-honeynet/add-data-collection-008.jpg)
+
+Add another data source, this time for Windows logs.
+
+![Data Collection Summary Page](assets/images/soc-honeynet/add-data-collection-009.jpg)
+
+Select Windows Event Logs from the data source dropdown. Under Basic > Application, Select Information. Under Security, select both Audit success and Audit failure to pull in failed authentication logs from RDP and the SQL Server. 
+
+
+![DCR Wizard - Windows Event Logs ](assets/images/soc-honeynet/add-data-collection-010.jpg)
+
+As you can see the options here are pretty, well, basic. In order to retrieve (filter) specific data from Windows event logs, XPath queries must be used. Switch over to Custom and add the following X-Path Queries:
+
+For Windows Defender Malware Detection:
+```Microsoft-Windows-Windows Defender/Operational!*[System[(EventID=1116 or EventID=1117)]]```
+
+For Windows Firewall Tampering Detection:
+```Microsoft-Windows-Windows Firewall With Advanced Security/Firewall!*[System[(EventID=2003)]]```
+
+![DCR Wizard, Windows Event Logs Custom Configuration](assets/images/soc-honeynet/add-data-collection-014.jpg)
+
+Save > Next: Destination and check that the logs are going to the appropriate LAW > Add data source > Review + Create > Create
+
+![DCR Wizard - Data Sources Summary Page](assets/images/soc-honeynet/add-data-collection-011.jpg)
+
+Data Collection Rule complete and deployed
+
+![Data Collection Rules in LAW](assets/images/soc-honeynet/add-data-collection-012.jpg)
+
+If you check back to LAW > Agents, the agents should have deployed and installed on the target VMs
+
+![Windows LAW Agent Installed and Connected](assets/images/soc-honeynet/add-data-collection-015.jpg)
+
+![Linux LAW Agent Installed and Connected](assets/images/soc-honeynet/add-data-collection-016.jpg)
+
+<!--
 
 ##### Tenant Level Logging
 ##### Subscription Level Logging
 ##### Resource Level Logging
 
-<!--
+
 ### Configure Microsoft Sentinel
 #### World Attack Maps Construction
 #### Analytics, Alerting and Incident Generation
