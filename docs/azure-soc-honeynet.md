@@ -20,7 +20,7 @@ tags:
 ![Architecture Diagram](./assets/images/soc-honeynet/topology-diagram-2.png)
 
 !!! note
-    This is a not a necessarily complete walk-though but it is a more detailed iteration of the Github/Gitlab repo. This page is a work in progress and the documentation for this lab is obnoxiously long. **Click on images to expand.**
+    This is a not a necessarily complete walk-though but it is a more detailed iteration of the Github/Gitlab repo. This page is a work in progress and the documentation for this lab is egreiously long. **Click on images to expand.**
 
 ## Overview
 
@@ -478,13 +478,53 @@ If you check back to LAW > Agents, the agents should have deployed and installed
 
 ![Linux LAW Agent Installed and Connected](assets/images/soc-honeynet/add-data-collection-016.jpg)
 
-<!--
+<!-- Add KQL Query Here to show logs are successfully coming into MS Sentinel -->
 
 ##### Tenant Level Logging
+
+Create diagnostic settings in Azure Active Directory (Microsoft Entra ID) that allows us to ingest logs. 
+
+Create a user, assign global admin and use Log Analytics to check that logs are properly being ingested. 
+
+Create an "attacker" user and generate some failed authentication logs by failing to log in 10-20 times. 
+
+!!! note
+    The AuditLogs come in pretty quickly, but the SigninLogs and AzureActivity take a while to come into the Log Analytics Workspace. Generate the logs, then take a 20-30 minute coffee break and query the LAW after. 
+
+Audit Logs
+
+Signin Logs
+
 ##### Subscription Level Logging
-##### Resource Level Logging
+
+Export Azure Activity Logs to Log Analytics Workspace. 
+
+Go to Azure Monitor > Activity Log > Export Activity Logs, create diagnostic settings. 
+
+Generate some logs to confirm functionality. Here, I'm creating two resource groups and changing a NSG, then deleting them **after ** confirming the logs are flowing into the LAW properly. 
+
+New Resource Groups
+
+New inbound security rule in attacker-vm-nsg
+
+Activity Logs 
 
 
+##### Resource Level Logging (Data Plane Logs)
+
+###### Storage Account 
+
+Enable logs for storage account and key vault. 
+
+Storage Accounts > Select Storage Account > Under Monitoring, select Diagnostic Settings 
+
+Click 'Disabled' next to 'blob' > Add Diagnostic setting > Select Audit, create name for setting > Save
+
+###### Azure Key Vault
+
+
+
+<!---
 ### Configure Microsoft Sentinel
 #### World Attack Maps Construction
 #### Analytics, Alerting and Incident Generation
