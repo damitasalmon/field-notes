@@ -522,6 +522,8 @@ Click 'Disabled' next to 'blob' > Add Diagnostic setting > Select Audit, create 
 
 ###### Azure Key Vault
 
+Navigate to Azure Key Vault > Create a Key Vault or use one you already have, just make sure it is in the same resource group as the other resources. Name must be globally unique. 
+
 
 
 <!---
