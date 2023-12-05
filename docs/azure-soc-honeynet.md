@@ -478,28 +478,47 @@ If you check back to LAW > Agents, the agents should have deployed and installed
 
 ![Linux LAW Agent Installed and Connected](assets/images/soc-honeynet/add-data-collection-016.jpg)
 
-<!-- Add KQL Query Here to show logs are successfully coming into MS Sentinel -->
+Ideally, at this point you would start querying Log Analytics for logs from the VMs and NSGs to make sure the logs are coming in:
+- Syslog (linux)
+- SecurityEvent (windows)
+- AzureNetworkAnalytics_CL (Network Security Groups/NSGs)
 
 ##### Tenant Level Logging
 
 Create diagnostic settings in Azure Active Directory (Microsoft Entra ID) that allows us to ingest logs. 
 
+![AAD Diagnostic Setting](assets/images/soc-honeynet/Diagnostic-setting-Microsoft-Azure.png)
+
 Create a user, assign global admin and use Log Analytics to check that logs are properly being ingested. 
 
+![Create a Dummy User](assets/images/soc-honeynet/Create-new-user-Microsoft-Azure.png)
+
+![Assign Global Admin](assets/images/soc-honeynet/Directory-roles-Microsoft-Azure.png)
+
 Create an "attacker" user and generate some failed authentication logs by failing to log in 10-20 times. 
+
+![Create an attacker user](assets/images/soc-honeynet/Create-new-user-Microsoft-Azure-2.png)
 
 !!! note
     The AuditLogs come in pretty quickly, but the SigninLogs and AzureActivity take a while to come into the Log Analytics Workspace. Generate the logs, then take a 20-30 minute coffee break and query the LAW after. 
 
 Audit Logs
 
+![Audit Logs](assets/images/soc-honeynet/LAW-Cyber-Lab-Microsoft-Azure.png)
+
 Signin Logs
+
+![Signin Logs](assets/images/soc-honeynet/LAW-Cyber-Lab-Microsoft-Azure-SigninLogs.png)
 
 ##### Subscription Level Logging
 
 Export Azure Activity Logs to Log Analytics Workspace. 
 
 Go to Azure Monitor > Activity Log > Export Activity Logs, create diagnostic settings. 
+
+![Az Monitor](assets/images/soc-honeynet/Monitor-Microsoft-Azure.png)
+
+![Diagnostic Setting Az Monitor](assets/images/soc-honeynet/Diagnostic-setting-Microsoft-Azure-Monitor.png)
 
 Generate some logs to confirm functionality. Here, I'm creating two resource groups and changing a NSG, then deleting them **after ** confirming the logs are flowing into the LAW properly. 
 
