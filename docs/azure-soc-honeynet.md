@@ -558,9 +558,11 @@ Click 'Disabled' next to 'blob' > Add Diagnostic setting > Select Audit, create 
 
 Navigate to Azure Key Vault > Create a Key Vault or use one you already have, just make sure it is in the same resource group as the other resources. Name must be globally unique. 
 
-![Create a key vault](assets/images/soc-honeynet/Create-a-key-vault-Microsoft-Azure.png)
-
 ![Create a key vault](<assets/images/soc-honeynet/Create-a-key-vault-Microsoft-Azure -02.png>)
+
+![Create a key vault - Change Access](assets/images/soc-honeynet/Create-a-key-vault-Microsoft-Azure.png)
+
+
 
 Create a Diagnostic Setting for LAW
 
