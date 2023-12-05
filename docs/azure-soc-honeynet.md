@@ -520,14 +520,23 @@ Go to Azure Monitor > Activity Log > Export Activity Logs, create diagnostic set
 
 ![Diagnostic Setting Az Monitor](assets/images/soc-honeynet/Diagnostic-setting-Microsoft-Azure-Monitor.png)
 
-Generate some logs to confirm functionality. Here, I'm creating two resource groups and changing a NSG, then deleting them **after ** confirming the logs are flowing into the LAW properly. 
+Generate some logs to confirm functionality. Here, I'm creating two resource groups and changing a NSG, then deleting them **after** confirming the logs are flowing into the LAW properly. 
 
 New Resource Groups
 
-New inbound security rule in attacker-vm-nsg
+![Test Resource Groups](assets/images/soc-honeynet/Resource-groups-Microsoft-Azure.png)
+
+New inbound security rule in attack-vm-nsg
+
+![Create Test Rule for Logs](assets/images/soc-honeynet/Change_NSG_Test_Activity_Logs.png)
 
 Activity Logs 
 
+ ![NSG Logs](assets/images/soc-honeynet/LAW-Cyber-Lab-Microsoft-Azure-NSG_logs.png)
+
+ Checking resource group deletion in logs
+
+ ![Resource Group deletion in LAW](assets/images/soc-honeynet/Delete-Resource-Group-Logs.png)
 
 ##### Resource Level Logging (Data Plane Logs)
 
@@ -537,13 +546,40 @@ Enable logs for storage account and key vault.
 
 Storage Accounts > Select Storage Account > Under Monitoring, select Diagnostic Settings 
 
+![Create a Diagnostic Setting AZ Storage](assets/images/soc-honeynet/sacyberlab009-Microsoft-Azure-Storage-01.png)
+
 Click 'Disabled' next to 'blob' > Add Diagnostic setting > Select Audit, create name for setting > Save
+
+![Create a Diagnostic Setting AZ Storage](assets/images/soc-honeynet/sacyberlab009-Microsoft-Azure-Storage-02.png)
+
+![Diagnostic Setting Az Storage](assets/images/soc-honeynet/Diagnostic-setting-Microsoft-Azure-Storage.png)
 
 ###### Azure Key Vault
 
 Navigate to Azure Key Vault > Create a Key Vault or use one you already have, just make sure it is in the same resource group as the other resources. Name must be globally unique. 
 
+![Create a key vault](assets/images/soc-honeynet/Create-a-key-vault-Microsoft-Azure.png)
 
+![Create a key vault](<assets/images/soc-honeynet/Create-a-key-vault-Microsoft-Azure -02.png>)
+
+Create a Diagnostic Setting for LAW
+
+![Create Diagnostic Setting in AKV](assets/images/soc-honeynet/ak-cyber-lab-Microsoft-Azure-diag-setting.png)
+
+![Diagnostic Setting AKV](assets/images/soc-honeynet/Diagnostic-setting-Microsoft-Azure-Key-Vault.png)
+
+Next, generate some logs by creating a few secrets and viewing them. 
+
+![Create secrets in AKV for Logs](assets/images/soc-honeynet/Create-a-secret-Microsoft-Azure.png)
+
+![Create secrets in AKV for Logs](<assets/images/soc-honeynet/Create-a-secret-Microsoft-Azure-2nd One.png>)
+
+![Secrets Overview in AKV](assets/images/soc-honeynet/ak-cyber-lab-Microsoft-Azure-after2ndSecret.png)
+
+
+Query LAW to make sure logs are flowing from resources:
+
+![Confirm logs in LAW](assets/images/soc-honeynet/Confirm-Azure-Activity-logs.png)
 
 <!---
 ### Configure Microsoft Sentinel
