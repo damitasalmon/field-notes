@@ -26,7 +26,7 @@ Then click "Edit in settings.json" to open the settings page for this profile.
 
 ![Sync Setting](assets/images/git-portable/git-portable_004.jpg)
 
-Add the path to the git binary, save and reload the extension. 
+Add the path to the git binary, save and reload the extension. Don't forget to escape the backslash character and omit the "exe" extension. 
 
 ![Settings.json](assets/images/git-portable/git-portable_005.jpg)
 
