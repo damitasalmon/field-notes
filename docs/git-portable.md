@@ -10,13 +10,19 @@ I changed devices and ended up having to do this again. Since I completely forgo
 
 File > Preferences > Profiles > Portable
 
+From the error msg, click the cog > Manage extension
+
 ![Error Pop-up](assets/images/git-portable/git-portable_001.jpg)
+
+Click the cog to go into extension settings.
 
 ![Git Extension Settings](assets/images/git-portable/git-portable_002.jpg)
 
+Search for path to bring up relevant settings. Click the cog next to 'Git Path' to make sure the setting is being synced to the profile. 
+
 ![Search Path](assets/images/git-portable/git-portable_003.jpg)
 
-Sync Setting to Portable Profile - hopefully this means you won't have to do this again.... then click "Edit in settings.json" to open the settings page for this profile. 
+Then click "Edit in settings.json" to open the settings page for this profile. 
 
 ![Sync Setting](assets/images/git-portable/git-portable_004.jpg)
 
