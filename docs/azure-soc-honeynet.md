@@ -418,7 +418,6 @@ Click +Resource > Select the target VM's > Confirm Selection
 
 ##### Create a Data Collection Rule for target VMs
 
-
 First make sure target VMs are running. The Microsoft Defender or will automatically install the agent to the VMs once they are running, if not, you can manually install later. 
 
 Next, go to LAW > Agents > Data Collection Rules > Create Data Collection Rule 
@@ -482,6 +481,15 @@ Ideally, at this point you would start querying Log Analytics for logs from the 
 - Syslog (linux)
 - SecurityEvent (windows)
 - AzureNetworkAnalytics_CL (Network Security Groups/NSGs)
+
+SecurityEvent:
+![SecurityEvent query in LAW](assets/images/soc-honeynet/LAW-Cyber-Lab-Microsoft-Azure-SecurityEvent.png)
+
+Syslog:
+![Syslog query in LAW](assets/images/soc-honeynet/LAW-Cyber-Lab-Microsoft-Azure-Syslog.png)
+
+AzureNetworkAnalytics_CL:
+![AzureNetworkAnalytics in LAW](assets/images/soc-honeynet/LAW-Cyber-Lab-Microsoft-Azure_AzureCL.png)
 
 
 ##### Tenant Level Logging
@@ -613,6 +621,9 @@ By doing this, you can test changes to the query and make sure it works and is g
 
 Here we're using KQL queries to trigger alerts and spin up incidents in Microsoft Sentinel. 
 
+Sentinel > Analytics > Create Scheduled query 
+
+![Create Alerts in Sentinel](assets/images/soc-honeynet/Microsoft-Sentinel-Microsoft-Alerts-Creation.png)
 
 
 #### Attack Traffic Generation (Simulated Attacks)
