@@ -636,41 +636,59 @@ Sentinel > Analytics > Create scheduled query rule
 
 #### Attack Traffic Generation (Simulated Attacks)
 
-### Implementing Security Controls
+To test your alerts and incidents rule configuration, simulate some attacks on the VMs and see if they show up in Sentinel (generate alerts and incidents). We have to make sure these work before the first observation period. Here are some tests to run: 
+- **Trigger AAD Brute Force Success:** Simulate brute force success against Azure AD with your attacker account (from attack-vm). Either use PowerShell or an incognito window to fail 10-11 consecutive logins, followed by one successful login.
+- **Trigger MSSQL Brute Force Attempt**: Using the attack-vm, use PowerShell of SSMS to simulate brute force attempt against your SQL Server by failing 10-11 consecutive logins.
+- **Trigger Malware Outbreak**: In windows-vm generate a malware alert by using PowerShell to create 1 or more EICAR files. You can also do this manually by creating a text file with an EICAR string in it. 
+- **Trigger Possible Privilege Escalation (AKV Critical Credential Retrieval or Update)**: Manually read Key Vault Secret “Tenant-Global-Admin-Password” in the Azure portal.
+- **Trigger Windows Host Firewall Tampering**: Manually Enable and Disable the windows-vm Firewall.
+- **Trigger Excessive Password Resets**: Reset a users’ password in the Azure portal 10-11 times.
 
-To collect the metrics for the secured environment, Network Security Groups were hardened by blocking ALL traffic (with the exception of my workstation), and built-in firewalls enabled. Azure Key Vault and Storage Container were protected by disabling access to public endpoints and replacing them with rivate endpoints.
+After each attach, wait 10-20 minutes, then check Sentinel to see if you have any incidents. This can also help you with incident investigation later on in the lab. 
 
-### Attack Maps Before Hardening / Security 
+Incidents in Sentinel after simulating some attacks: 
 
-#### NSG Allowed Malicious Inbound Flows
-![NSG Allowed Inbound Malicious Flows](./assets/images/soc-honeynet/nsg.png)<br>
+![Test Traffic in Sentinel](assets/images/soc-honeynet/Test-Sentinel-Alerts.png)
 
-#### Linux SSH Authentication Failures
-![Linux Syslog Auth Fail](./assets/images/soc-honeynet/syslog.png)<br>
+<!--
+### Run Insecure Environment (24H)
 
-
-#### Windows RDP/SMB Authentication Failures
-![Windows RDP/SMB Auth Fail](./assets/images/soc-honeynet/windows-rdp-smb.png)<br>
-
-
-#### MS SQL Server Authentication Failures
-![MSSQL Server Auth Fail](./assets/images/soc-honeynet/mssql.png)<br>
-
-
-### Metrics Before Hardening / Security Controls
-
-The following table shows the measurements taken in the insecure environment for 24 hours: <br>
-Start Time	2023-07-09 22:23:51 <br>
-Stop Time	2023-07-10 22:23:51
+The following table shows the measurements taken from the insecure environment after the initial 24 hour observation period: <br>
+Start Time	2023-12-10 10:00:00 <br>
+Stop Time	2023-12-11 10:00:00
 
 
 | Metric                   | Count
 | ------------------------ | -----
-| SecurityEvents           | 131638
-| Syslog                   | 4847
-| SecurityAlert            | 6
-| SecurityIncident         | 359
-| AzureNetworkAnalytics_CL | 2450
+| SecurityEvents           |
+| Syslog                   | 
+| SecurityAlert            | 
+| SecurityIncident         | 
+| AzureNetworkAnalytics_CL | 
+
+
+#### Attack Maps Before Hardening / Security 
+
+##### NSG Allowed Malicious Inbound Flows
+![NSG Allowed Inbound Malicious Flows](./assets/images/soc-honeynet/nsg.png)<br>
+
+##### Linux SSH Authentication Failures
+![Linux Syslog Auth Fail](./assets/images/soc-honeynet/syslog.png)<br>
+
+
+##### Windows RDP/SMB Authentication Failures
+![Windows RDP/SMB Auth Fail](./assets/images/soc-honeynet/windows-rdp-smb.png)<br>
+
+##### MS SQL Server Authentication Failures
+![MSSQL Server Auth Fail](./assets/images/soc-honeynet/mssql.png)<br>
+
+-->
+<!--
+### Implementing Security Controls
+
+### Metrics Before Hardening / Security Controls
+To collect the metrics for the secured environment, Network Security Groups were hardened by blocking ALL traffic (with the exception of my workstation), and built-in firewalls enabled. Azure Key Vault and Storage Container were protected by disabling access to public endpoints and replacing them with rivate endpoints.
+
 
 
 ## Stage III - Incident Response
@@ -682,7 +700,7 @@ Stop Time	2023-07-10 22:23:51
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](./assets/images/soc-honeynet/architecture-after-5.png)<br>
 
-<!--
+
 ## Attack Maps After Hardening / Security Controls
 
 ```All map queries returned no results due to no instances of malicious activity for the 24-hour period after hardening.```
