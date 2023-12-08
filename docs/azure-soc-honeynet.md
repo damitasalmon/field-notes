@@ -621,9 +621,17 @@ By doing this, you can test changes to the query and make sure it works and is g
 
 Here we're using KQL queries to trigger alerts and spin up incidents in Microsoft Sentinel. 
 
-Sentinel > Analytics > Create Scheduled query 
+Sentinel > Analytics > Create scheduled query rule
 
 ![Create Alerts in Sentinel](assets/images/soc-honeynet/Microsoft-Sentinel-Microsoft-Alerts-Creation.png)
+
+![Analytics Rule Wizard Part 1](assets/images/soc-honeynet/Analytics-rule-wizard-01.png) 
+
+![Analytics Rule Wizard Part 2](assets/images/soc-honeynet/Analytics-rule-wizard-02.png) 
+
+![Analytics Rule Wizard Part 3](assets/images/soc-honeynet/Analytics-rule-wizard-03.png) 
+
+![Analytics Rule Wizard Part 4](assets/images/soc-honeynet/Analytics-rule-wizard-04.png)
 
 
 #### Attack Traffic Generation (Simulated Attacks)
