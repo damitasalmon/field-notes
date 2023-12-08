@@ -483,6 +483,7 @@ Ideally, at this point you would start querying Log Analytics for logs from the 
 - SecurityEvent (windows)
 - AzureNetworkAnalytics_CL (Network Security Groups/NSGs)
 
+
 ##### Tenant Level Logging
 
 Create diagnostic settings in Azure Active Directory (Microsoft Entra ID) that allows us to ingest logs. 
@@ -583,10 +584,37 @@ Query LAW to make sure logs are flowing from resources:
 
 ![Confirm logs in LAW](assets/images/soc-honeynet/Confirm-Azure-Activity-logs.png)
 
-<!---
+
 ### Configure Microsoft Sentinel
+
 #### World Attack Maps Construction
+
+This is the point where we can create attack maps for the following use cases: 
+- Failed Authentication in Windows (RDP/SMB)
+- Failed Authentication in Linux (SSH)
+- Failed Authentication to the Microsoft SQL Server
+- Malicious Flows to the Network Security Groups
+
+Go to Microsoft Sentinel > Workbooks > Add Workbook > Edit > Delete default analytics query > Add query > Advanced Editor > Add json query here > Save and name workbook.
+
+![Sentinel After Workbooks Creation](assets/images/soc-honeynet/Microsoft-Sentinel-Microsoft-Azure-Workbooks-Creation.png)
+
+If you want to test the query, to see if events will be plotted on the map. Exit the Advanced Editor and grab the query from the main Edit page, then use it to query the logs in LAW. 
+
+For example, this is the query from the Microsoft SQL Server failed authentication workbook in LAW:
+
+![MSSQL Failed Auth in LAW](assets/images/soc-honeynet/LAW-Cyber-Lab-Microsoft-Azure-MSSQL.png)
+
+By doing this, you can test changes to the query and make sure it works and is generating desired results before updating the workbooks in Sentinel. 
+
 #### Analytics, Alerting and Incident Generation
+
+#### Manual Alert Creation 
+
+Here we're using KQL queries to trigger alerts and spin up incidents in Microsoft Sentinel. 
+
+
+
 #### Attack Traffic Generation (Simulated Attacks)
 
 ### Implementing Security Controls
@@ -635,7 +663,7 @@ Stop Time	2023-07-10 22:23:51
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](./assets/images/soc-honeynet/architecture-after-5.png)<br>
 
-
+<!--
 ## Attack Maps After Hardening / Security Controls
 
 ```All map queries returned no results due to no instances of malicious activity for the 24-hour period after hardening.```
