@@ -690,8 +690,12 @@ Stop Time	2023-12-11 10:00:00
 To collect the metrics for the secured environment, Network Security Groups were hardened by blocking ALL traffic (with the exception of my workstation), and built-in firewalls enabled. Azure Key Vault and Storage Container were protected by disabling access to public endpoints and replacing them with rivate endpoints.
 
 
+## Stage III - Working Incidents and Incident Response
+### Incident 1 - Brute Force Success (Windows) 
+### Incident 2 - Possible Privilege Escalation
+### Incident 3 - Brute Force Success (Linux)
+### Incident 4 - Possible Malware Outbreak
 
-## Stage III - Incident Response
 
 ## Stage IV - Secure Cloud Configuration
 
