@@ -671,20 +671,32 @@ The following table shows the measurements taken from the insecure environment a
 
 #### Attack Maps Before Hardening / Security 
 
+Before taking the screenshots, the workbooks need to be edited to only show the last 24 hours. The query runs over the last 30 days by default. 
+
+**To edit the maps**:
+
+![Generate Maps 1](assets/images/soc-honeynet/generate-attack-maps-01.png) 
+![Generate Maps 2](assets/images/soc-honeynet/generate-attack-maps-02.png) 
+![Generate Maps 3](assets/images/soc-honeynet/generate-attack-maps-03.png) 
+![Generate Maps 4](assets/images/soc-honeynet/generate-attack-maps-04.png)
+
 ##### NSG Allowed Malicious Inbound Flows
-![NSG Allowed Inbound Malicious Flows](./assets/images/soc-honeynet/nsg.png)<br>
+![NSG Allowed Inbound Malicious Flows](assets/images/soc-honeynet/nsg-malicious-allowed-in-before.png)<br>
 
 ##### Linux SSH Authentication Failures
-![Linux Syslog Auth Fail](./assets/images/soc-honeynet/syslog.png)<br>
+![Linux Syslog Auth Fail](./assets/images/soc-honeynet/linux-ssh-auth-fail-before.png)<br>
 
 
 ##### Windows RDP/SMB Authentication Failures
-![Windows RDP/SMB Auth Fail](./assets/images/soc-honeynet/windows-rdp-smb.png)<br>
+![Windows RDP/SMB Auth Fail](./assets/images/soc-honeynet/windows-rdp-auth-fail-before.png)<br>
 
 ##### MS SQL Server Authentication Failures
-![MSSQL Server Auth Fail](./assets/images/soc-honeynet/mssql.png)<br>
+![MSSQL Server Auth Fail](assets/images/soc-honeynet/mssql-auth-fail-before.png)
 
--->
+
+## Stage III - Working Incidents and Incident Response
+
+
 <!--
 ### Implementing Security Controls
 
@@ -692,7 +704,6 @@ The following table shows the measurements taken from the insecure environment a
 To collect the metrics for the secured environment, Network Security Groups were hardened by blocking ALL traffic (with the exception of my workstation), and built-in firewalls enabled. Azure Key Vault and Storage Container were protected by disabling access to public endpoints and replacing them with rivate endpoints.
 
 
-## Stage III - Working Incidents and Incident Response
 ### Incident 1 - Brute Force Success (Windows) 
 ### Incident 2 - Possible Privilege Escalation
 ### Incident 3 - Brute Force Success (Linux)
