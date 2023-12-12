@@ -1,5 +1,5 @@
 ---
-title: "Azure SOC Honeynet"
+title: "Azure SOC Honeynet MOC"
 tags: 
 - azure
 - lab
@@ -650,22 +650,24 @@ Incidents in Sentinel after simulating some attacks:
 
 ![Test Traffic in Sentinel](assets/images/soc-honeynet/Test-Sentinel-Alerts.png)
 
-<!--
+
 ### Run Insecure Environment (24H)
 
 The following table shows the measurements taken from the insecure environment after the initial 24 hour observation period: <br>
-Start Time	2023-12-10 10:00:00 <br>
-Stop Time	2023-12-11 10:00:00
 
+#### Metrics - Before Securing Environment
+	
+**Start Time**:	12/11/2023, 9:40:11 AM  <br>
+**Stop Time**:	12/12/2023, 9:40:11 AM
 
-| Metric                   | Count
-| ------------------------ | -----
-| SecurityEvents           |
-| Syslog                   | 
-| SecurityAlert            | 
-| SecurityIncident         | 
-| AzureNetworkAnalytics_CL | 
-
+|Metric | Count |
+|------|---------|
+|Security Events (Windows VMs)| 39687|
+|Syslog (Linux VMs)| 16562|
+|SecurityAlert (Microsoft Defender for Cloud) |8|
+|SecurityIncident (Sentinel Incidents) |248|
+|NSG Inbound Malicious Flows Allowed |2252|
+|NSG Inbound Malicious Flows Blocked |0|
 
 #### Attack Maps Before Hardening / Security 
 
