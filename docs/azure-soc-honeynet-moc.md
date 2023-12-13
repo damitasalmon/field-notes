@@ -696,21 +696,127 @@ Before taking the screenshots, the workbooks need to be edited to only show the 
 
 ## Stage III - Working Incidents and Incident Response
 
+Next, investigate and work the incidents being generated within Azure Sentinel, in accordance with the [NIST 800-61](https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-61r2.pdf) Incident Management Lifecycle. 
+
+![Incident Management Lifecycle](assets/images/soc-honeynet/incident-response-lifecycle.png)
+
+**Step 1: Preparation**
+
+We initiated this already by ingesting all of the logs into Log Analytics Workspace and Sentinel and configuring alert rules. 
+
+**Step 2: Detection & Analysis**
+    1. Set Severity, Status, Owner
+    2. View Full Details 
+    3. Observe the Activity Log
+    4. Observe Entities and Incident Timelines
+    5. “Investigate” the incident and continue trying to determine the scope
+    6. Inspect the entities and see if there are any related events
+    7. Determine legitimacy of the incident 
+    8. If True Positive, continue, if False positive, close it out
+
+**Step 3: Containment, Eradication, and Recovery**
+
+Use this simple [Incident Response PlayBook](https://docs.google.com/document/d/1EQ5MzN95POLaRIMulYg3PIH3UGHtDNcGdkFvgOXyEXQ/edit#heading=h.85wjqnr3yu96) to remediate the incident.
+
+**Step 4: Post-Incident Activity**
+
+Document Findings and Close out the Incident in Sentinel
+<!--
+### Incident 1 - Brute Force Success (Windows) 
+
+![Incident 1 - Brute Force Overview](assets/images/soc-honeynet/indident-1-brute-force.png)
+
+**Step 2: Detection & Analysis**
+    1. Set Severity, Status, Owner
+   
+   ![Brute Force - Set Status](assets/images/soc-honeynet/indident-1-brute-force-1-set-status.png)
+
+    2. View Full Details 
+   
+   ![Brute Force - Full Details](assets/images/soc-honeynet/indident-1-brute-force-2-full-details.png)
+   
+    3. Observe the Activity Log
+    4. Observe Entities and Incident Timelines
+    5. “Investigate” the incident and continue trying to determine the scope
+    6. Inspect the entities and see if there are any related events
+    7. Determine legitimacy of the incident 
+    8. If True Positive, continue, if False positive, close it out
+
+**Step 3: Containment, Eradication, and Recovery**
+
+**Step 4: Post-Incident Activity**
+
+Document Findings and Close out the Incident in Sentinel
+
 
 <!--
+### Incident 2 - Possible Privilege Escalation
+
+Step 2: Detection & Analysis
+    1. Set Severity, Status, Owner
+    2. View Full Details 
+    3. Observe the Activity Log
+    4. Observe Entities and Incident Timelines
+    5. “Investigate” the incident and continue trying to determine the scope
+    6. Inspect the entities and see if there are any related events
+    7. Determine legitimacy of the incident 
+    8. If True Positive, continue, if False positive, close it out
+
+Step 3: Containment, Eradication, and Recovery
+
+
+
+**Step 4: Post-Incident Activity**
+
+Document Findings and Close out the Incident in Sentinel
+
+### Incident 3 - Brute Force Success (Linux)
+
+
+Step 2: Detection & Analysis
+    1. Set Severity, Status, Owner
+    2. View Full Details 
+    3. Observe the Activity Log
+    4. Observe Entities and Incident Timelines
+    5. “Investigate” the incident and continue trying to determine the scope
+    6. Inspect the entities and see if there are any related events
+    7. Determine legitimacy of the incident 
+    8. If True Positive, continue, if False positive, close it out
+
+Step 3: Containment, Eradication, and Recovery
+
+
+
+**Step 4: Post-Incident Activity**
+
+Document Findings and Close out the Incident in Sentinel
+
+### Incident 4 - Possible Malware Outbreak
+
+Step 2: Detection & Analysis
+    1. Set Severity, Status, Owner
+    2. View Full Details 
+    3. Observe the Activity Log
+    4. Observe Entities and Incident Timelines
+    5. “Investigate” the incident and continue trying to determine the scope
+    6. Inspect the entities and see if there are any related events
+    7. Determine legitimacy of the incident 
+    8. If True Positive, continue, if False positive, close it out
+
+Step 3: Containment, Eradication, and Recovery
+
+
+
+**Step 4: Post-Incident Activity**
+
+Document Findings and Close out the Incident in Sentinel
+
+## Stage IV - Secure Cloud Configuration
+
 ### Implementing Security Controls
 
 ### Metrics Before Hardening / Security Controls
 To collect the metrics for the secured environment, Network Security Groups were hardened by blocking ALL traffic (with the exception of my workstation), and built-in firewalls enabled. Azure Key Vault and Storage Container were protected by disabling access to public endpoints and replacing them with rivate endpoints.
-
-
-### Incident 1 - Brute Force Success (Windows) 
-### Incident 2 - Possible Privilege Escalation
-### Incident 3 - Brute Force Success (Linux)
-### Incident 4 - Possible Malware Outbreak
-
-
-## Stage IV - Secure Cloud Configuration
 
 ### Enabling Regulatory Compliance in MDC
 
