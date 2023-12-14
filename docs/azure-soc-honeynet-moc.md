@@ -721,12 +721,13 @@ Use this simple [Incident Response PlayBook](https://docs.google.com/document/d/
 **Step 4: Post-Incident Activity**
 
 Document Findings and Close out the Incident in Sentinel
-<!--
+
 ### Incident 1 - Brute Force Success (Windows) 
 
 ![Incident 1 - Brute Force Overview](assets/images/soc-honeynet/indident-1-brute-force.png)
 
 **Step 2: Detection & Analysis**
+
     1. Set Severity, Status, Owner
    
    ![Brute Force - Set Status](assets/images/soc-honeynet/indident-1-brute-force-1-set-status.png)
