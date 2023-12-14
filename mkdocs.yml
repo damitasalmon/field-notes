@@ -48,7 +48,7 @@ plugins:
       tags_file: tags.md
   - glightbox
   - blog:
-      enabled: true
+      enabled: false
       blog_dir: blog
       post_date_format: full
 
